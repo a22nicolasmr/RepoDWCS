@@ -1,17 +1,10 @@
 <?php
-function test_input($data)
-{
-    $data = trim($data);
-    $data = stripslashes($data);
-    $data = htmlspecialchars($data);
-    return $data;
-}
 function createSelect(array $values): void
 {
     echo "<select name=subjectEnroll>";
     echo "<option value=\"\">Select option</option>";
     foreach ($values as $key => $value) {
-        echo "<option value=.$key.>$value</option>";
+        echo "<option value=$value>$value</option>";
     }
     echo "</select>";
 }
@@ -26,21 +19,24 @@ function createSelect(array $values): void
 </head>
 
 <body>
-    <?php
-    $opciones = [
-        "Java Programming",
-        "Web Design",
-        "Dockers administration",
-        "Django framework",
-        "Mongo database"
-    ];
-    ?>
-    <h1>First practice using forms</h1>
-    <label for="nameSurnames">Name and surnames:</label>
-    <input type="text" name="name"><br>
+    <form action="manage.php">
+        <?php
+        $opciones = [
+            "Java Programming",
+            "Web Design",
+            "Dockers administration",
+            "Django framework",
+            "Mongo database"
+        ];
+        ?>
+        <h1>First practice using forms</h1>
+        <label for="nameSurnames">Name and surnames:</label>
+        <input type="text" name="name"><br>
 
-    <label for="selectOption">Subject to enroll: </label><?php createSelect($opciones); ?><br>
-    <input type="button" value="Send data" name="sendData">
+        <label for="selectOption">Subject to enroll: </label><?php createSelect($opciones); ?><br>
+        <input type="submit" value="Send data" name="sendData">
+    </form>
+
 
 </body>
 
