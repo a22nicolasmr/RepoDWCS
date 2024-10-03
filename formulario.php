@@ -20,7 +20,7 @@ function createSelect(array $values): void
 </head>
 
 <body>
-    <form action="manage.php">
+    <form action="manage.php" method="get">
         <?php
         $opciones = [
             "Java Programming",

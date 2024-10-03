@@ -5,20 +5,29 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Manage</title>
+    <style>
+        .error {
+            color: red;
+        }
+    </style>
 </head>
 
 <body>
+    <h1>Second page</h1>
     <?php
-    $name = $subject = "";
 
-    if ($name = $_GET["name"]) {
-        $name = $_GET["name"];
+    $name = $_GET["name"];
+    $subject = $_GET["subjectEnroll"];
+    $error = "";
+    if (empty($_GET["name"])) {
+        $error = "Name required";
+    }
+    if ($error == "") {
+        echo $name . " wants to enroll in the following subject: " . $subject;
+    } else {
+        echo "<span class='error'> $error </span><br>";
     }
 
-    if ($subject = $_GET["subjectEnroll"]) {
-        $subject = $_GET["subjectEnroll"];
-    }
-    echo $name . " wants to enrol in the following subjects: " . $subject;
     ?>
     <br><a href="manage2.php">Link to manage2</a>
 </body>
