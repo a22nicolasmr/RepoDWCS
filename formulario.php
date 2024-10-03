@@ -4,7 +4,8 @@ function createSelect(array $values): void
     echo "<select name=subjectEnroll>";
     echo "<option value=\"\">Select option</option>";
     foreach ($values as $key => $value) {
-        echo "<option value=$value>$value</option>";
+        echo "<option value='$value'>$value</option>";
+        //sin las comillas simples en value , no coge el string entero
     }
     echo "</select>";
 }
