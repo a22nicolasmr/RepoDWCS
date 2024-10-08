@@ -69,7 +69,7 @@
             align-items: center;
             margin-left: 8%;
             margin-right: 8%;
-            margin-bottom: 8%;
+            margin-bottom: 3%;
 
             /* Reducir márgenes */
         }
@@ -81,7 +81,7 @@
             flex: 0.20;
             margin-left: 8%;
             margin-right: 8%;
-            margin-bottom: 8%;
+
             font-size: xx-large
         }
 
@@ -90,7 +90,7 @@
             justify-content: center;
             margin-left: 8%;
             margin-right: 8%;
-            margin-bottom: 8%;
+
         }
 
         section>p {
