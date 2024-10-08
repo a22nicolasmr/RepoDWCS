@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Menu</title>
+    <title>Data</title>
     <style>
         body {
             display: flex;
@@ -30,10 +30,12 @@
         section,
         nav,
         article,
-        aside {
+        aside,
+        div>p {
             color: black;
             border: 0.1px black solid;
         }
+
 
         #section {
             display: flex;
@@ -59,9 +61,8 @@
             /* Reducir márgenes */
         }
 
-        #divHyperlinkLogin>header,
-        #divHyperlinkForm>article,
-        #divHyperlinkUser>footer {
+        #divUsername>p,
+        #divRestData>p {
             display: flex;
             background-color: white;
             flex: 0.20;
@@ -74,7 +75,7 @@
             /* Reducir márgenes */
         }
 
-        #buttonLogOut {
+        #buttonMenu {
             background-color: #0000ff;
             color: white;
             display: flex;
@@ -101,7 +102,7 @@
             margin-left: 8%;
         }
 
-        #divHyperlinkUser>footer {
+        #footerSection>footer {
             display: flex;
             background-color: white;
             flex: 0.20;
@@ -141,25 +142,14 @@
 
         </nav>
         <section>
-            <p>Menu</p>
-            <div id="divHyperlinkLogin">
-                <header>
-                    <a href="">Hyperlink to Login screen</a>
-                </header>
+            <p>Data</p>
+            <div id="divUsername">
+                <p>Username was registered at the web page.</p>
             </div>
-            <div id="divHyperlinkForm">
-                <article>
-                    <a href="">Hyperlink to Form screen</a>
-                </article>
+            <div id="divRestData">
+                <p>First name Last name with email email y employed/unemployed and is a man/woman</p>
             </div>
-            <span class="error"> Mensaje error</span> <br>
-            <div id="divHyperlinkUser">
-                <footer>
-                    <a href="">Hyperlink to user´s data screen</a>
-                </footer>
-            </div>
-
-            <input type="submit" value="Log out" id="buttonLogOut">
+            <input type="submit" value="Menu" id="buttonMenu">
 
         </section>
         <aside>

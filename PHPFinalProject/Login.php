@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Menu</title>
+    <title>Login</title>
     <style>
         body {
             display: flex;
@@ -22,15 +22,13 @@
             display: flex;
             flex: 0.10;
             justify-content: center;
-            background-color: #c9daf8;
+            background-color: #6d9eeb;
         }
 
-        header,
-        footer,
+
         section,
-        nav,
         article,
-        aside {
+        #headerSection>header {
             color: black;
             border: 0.1px black solid;
         }
@@ -46,7 +44,7 @@
             display: flex;
             flex: 1;
             flex-direction: column;
-            background-color: white;
+            background-color: #c9daf8;
         }
 
         nav,
@@ -59,9 +57,9 @@
             /* Reducir márgenes */
         }
 
-        #divHyperlinkLogin>header,
-        #divHyperlinkForm>article,
-        #divHyperlinkUser>footer {
+        #headerSection>header,
+        #articleSection>article,
+        #footerSection>footer {
             display: flex;
             background-color: white;
             flex: 0.20;
@@ -74,7 +72,7 @@
             /* Reducir márgenes */
         }
 
-        #buttonLogOut {
+        #buttonSend {
             background-color: #0000ff;
             color: white;
             display: flex;
@@ -101,7 +99,7 @@
             margin-left: 8%;
         }
 
-        #divHyperlinkUser>footer {
+        #footerSection>footer {
             display: flex;
             background-color: white;
             flex: 0.20;
@@ -111,22 +109,34 @@
             /* Reducir márgenes */
         }
 
-        a {
+        input {
             margin-left: 2%;
             margin-right: 2%;
             margin-bottom: 2%;
             margin-top: 2%;
+
+
         }
 
         #footerFuera {
             display: flex;
             flex: 0.10;
             justify-content: center;
-            background-color: #c9daf8;
+            background-color: #6d9eeb;
         }
 
         .error {
             color: red;
+        }
+
+        #idUsername,
+        #idPassword {
+            display: flex;
+            flex: 0.20;
+            margin-left: 8%;
+            margin-right: 8%;
+            margin-bottom: 3%;
+            font-size: xx-large
         }
     </style>
 </head>
@@ -141,25 +151,11 @@
 
         </nav>
         <section>
-            <p>Menu</p>
-            <div id="divHyperlinkLogin">
-                <header>
-                    <a href="">Hyperlink to Login screen</a>
-                </header>
-            </div>
-            <div id="divHyperlinkForm">
-                <article>
-                    <a href="">Hyperlink to Form screen</a>
-                </article>
-            </div>
+            <p>Sign in</p>
+            <input type="text" name="inputUsername" placeholder="Username" id="idUsername">
+            <input type="text" name="inputPassword" placeholder="Password" id="idPassword">
             <span class="error"> Mensaje error</span> <br>
-            <div id="divHyperlinkUser">
-                <footer>
-                    <a href="">Hyperlink to user´s data screen</a>
-                </footer>
-            </div>
-
-            <input type="submit" value="Log out" id="buttonLogOut">
+            <input type="submit" value="Send" id="buttonSend">
 
         </section>
         <aside>
