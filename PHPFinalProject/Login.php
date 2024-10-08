@@ -127,6 +127,7 @@
 
         .error {
             color: red;
+            font-size: xx-large;
         }
 
         #idUsername,
@@ -154,7 +155,7 @@
             <p>Sign in</p>
             <input type="text" name="inputUsername" placeholder="Username" id="idUsername">
             <input type="text" name="inputPassword" placeholder="Password" id="idPassword">
-            <span class="error"> Mensaje error</span> <br>
+            <span class="error"> Menssage error</span> <br>
             <input type="submit" value="Send" id="buttonSend">
 
         </section>

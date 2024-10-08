@@ -116,6 +116,7 @@
             margin-right: 2%;
             margin-bottom: 2%;
             margin-top: 2%;
+            font-size: xx-large;
         }
 
         #footerFuera {
@@ -127,6 +128,7 @@
 
         .error {
             color: red;
+            font-size: xx-large;
         }
     </style>
 </head>
@@ -152,7 +154,7 @@
                     <a href="">Hyperlink to Form screen</a>
                 </article>
             </div>
-            <span class="error"> Mensaje error</span> <br>
+            <span class="error"> Message error</span> <br>
             <div id="divHyperlinkUser">
                 <footer>
                     <a href="">Hyperlink to user´s data screen</a>

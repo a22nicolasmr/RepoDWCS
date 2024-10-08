@@ -129,6 +129,10 @@
         .error {
             color: red;
         }
+
+        div>p {
+            font-size: xx-large;
+        }
     </style>
 </head>
 
