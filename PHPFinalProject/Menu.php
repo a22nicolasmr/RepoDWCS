@@ -59,9 +59,9 @@
             /* Reducir márgenes */
         }
 
-        #divHyperlinkLogin>header,
-        #divHyperlinkForm>article,
-        #divHyperlinkUser>footer {
+        #divHyperlinkLogin,
+        #divHyperlinkForm,
+        #divHyperlinkUser {
             display: flex;
             background-color: white;
             flex: 0.20;
@@ -70,6 +70,8 @@
             margin-left: 8%;
             margin-right: 8%;
             margin-bottom: 3%;
+            color: black;
+            border: 0.1px black solid;
 
             /* Reducir márgenes */
         }
@@ -101,7 +103,7 @@
             margin-left: 8%;
         }
 
-        #divHyperlinkUser>footer {
+        #divHyperlinkUser {
             display: flex;
             background-color: white;
             flex: 0.20;
@@ -145,20 +147,14 @@
         <section>
             <p>Menu</p>
             <div id="divHyperlinkLogin">
-                <header>
-                    <a href="">Hyperlink to Login screen</a>
-                </header>
+                <a href="Login.php">Hyperlink to Login screen</a>
             </div>
             <div id="divHyperlinkForm">
-                <article>
-                    <a href="">Hyperlink to Form screen</a>
-                </article>
+                <a href="Form.php">Hyperlink to Form screen</a>
             </div>
             <span class="error"> Message error</span> <br>
             <div id="divHyperlinkUser">
-                <footer>
-                    <a href="">Hyperlink to user´s data screen</a>
-                </footer>
+                <a href="Data.php">Hyperlink to user´s data screen</a>
             </div>
 
             <input type="submit" value="Log out" id="buttonLogOut">
