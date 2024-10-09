@@ -1,3 +1,20 @@
+<?php
+function check_user($username, $password): bool
+{
+    $result = false;
+    if ($username == "n" && $password == "p") {
+        $result = true;
+    }
+    return $result;
+}
+function test_input($data)
+{
+    $data = trim($data);
+    $data = stripslashes($data);
+    $data = htmlspecialchars($data);
+    return $data;
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -26,21 +43,21 @@
         }
 
 
-        section,
+        form,
         article,
-        #headerSection>header {
+        #headerform>header {
             color: black;
             border: 0.1px black solid;
         }
 
-        #section {
+        #form {
             display: flex;
             flex-direction: row;
             flex: 1;
             min-height: 0;
         }
 
-        section {
+        form {
             display: flex;
             flex: 1;
             flex-direction: column;
@@ -57,9 +74,9 @@
             /* Reducir márgenes */
         }
 
-        #headerSection>header,
-        #articleSection>article,
-        #footerSection>footer {
+        #headerform>header,
+        #articleform>article,
+        #footerform>footer {
             display: flex;
             background-color: white;
             flex: 0.20;
@@ -91,7 +108,7 @@
             margin-bottom: 8%;
         }
 
-        section>p {
+        form>p {
             display: flex;
             justify-content: flex-start;
             align-items: flex-start;
@@ -99,7 +116,7 @@
             margin-left: 8%;
         }
 
-        #footerSection>footer {
+        #footerform>footer {
             display: flex;
             background-color: white;
             flex: 0.20;
@@ -143,22 +160,47 @@
 </head>
 
 <body>
+    <?php
+    $loginError = $username = $password = "";
+
+    if ($_SERVER["REQUEST_METHOD"] == $_POST) {
+        if (empty($_POST["inputUsername"])) {
+            $loginError = "Incorrect credentials";
+        } else {
+            $username = test_input($_POST["inputUsername"]);
+        }
+        if (empty($_POST["inputPassword"])) {
+            $loginError = "Incorrect credentials";
+        } else {
+            $password = test_input($_POST["inputPassword"]);
+        }
+
+        if (check_user($username, $password)) {
+            session_start();
+            $_SESSION['username'] = $username;
+            $_SESSION['password'] = $password;
+            header("Location: Menu.php");
+        } else {
+            $loginError = "Incorrect credentials";
+        }
+    }
+    ?>
     <header id="headerFuera">
 
     </header>
 
-    <div id="section">
+    <div id="form">
         <nav>
 
         </nav>
-        <section>
+        <form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>">
             <p>Sign in</p>
             <input type="text" name="inputUsername" placeholder="Username" id="idUsername">
-            <input type="text" name="inputPassword" placeholder="Password" id="idPassword">
-            <span class="error"> Menssage error</span> <br>
+            <input type="password" name="inputPassword" placeholder="Password" id="idPassword">
+            <span class="error"><?php echo $loginError ?></span> <br>
             <input type="submit" value="Send" id="buttonSend">
 
-        </section>
+        </form>
         <aside>
 
         </aside>

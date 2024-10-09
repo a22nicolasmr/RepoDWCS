@@ -1,3 +1,6 @@
+<?php
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -136,6 +139,9 @@
 </head>
 
 <body>
+    <?php
+
+    ?>
     <header id="headerFuera">
 
     </header>
