@@ -1,8 +1,9 @@
 <?php
+session_start();
 function check_user($username, $password): bool
 {
     $result = false;
-    if ($username == "n" && $password == "p") {
+    if ($username === "n" && $password === "p") {
         $result = true;
     }
     return $result;
@@ -13,6 +14,36 @@ function test_input($data)
     $data = stripslashes($data);
     $data = htmlspecialchars($data);
     return $data;
+}
+$loginError = $username = $password = "";
+
+if (isset(($_POST["submit"]))) {
+
+    if (isset($_SESSION["username"])) {
+        $loginError = "You are already logged";
+    } else {
+        if (empty($_POST["inputUsername"])) {
+            $loginError = "Incorrect credentials";
+        } else {
+            $username = test_input($_POST["inputUsername"]);
+        }
+
+        if (empty($_POST["inputPassword"])) {
+            $loginError = "Incorrect credentials";
+        } else {
+            $password = test_input($_POST["inputPassword"]);
+        }
+
+        if (check_user($username, $password)) {
+
+            $_SESSION['username'] = $username;
+            $_SESSION['password'] = $password;
+            header("Location: Menu.php");
+            exit();
+        } else {
+            $loginError = "Incorrect credentials";
+        }
+    }
 }
 ?>
 <!DOCTYPE html>
@@ -160,31 +191,6 @@ function test_input($data)
 </head>
 
 <body>
-    <?php
-    $loginError = $username = $password = "";
-
-    if ($_SERVER["REQUEST_METHOD"] == $_POST) {
-        if (empty($_POST["inputUsername"])) {
-            $loginError = "Incorrect credentials";
-        } else {
-            $username = test_input($_POST["inputUsername"]);
-        }
-        if (empty($_POST["inputPassword"])) {
-            $loginError = "Incorrect credentials";
-        } else {
-            $password = test_input($_POST["inputPassword"]);
-        }
-
-        if (check_user($username, $password)) {
-            session_start();
-            $_SESSION['username'] = $username;
-            $_SESSION['password'] = $password;
-            header("Location: Menu.php");
-        } else {
-            $loginError = "Incorrect credentials";
-        }
-    }
-    ?>
     <header id="headerFuera">
 
     </header>
@@ -195,10 +201,11 @@ function test_input($data)
         </nav>
         <form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>">
             <p>Sign in</p>
-            <input type="text" name="inputUsername" placeholder="Username" id="idUsername">
+            <!--this line checks if is any username in the session; if is true in the input will appear this name , in the other case the input will stay empty -->
+            <input type="text" name="inputUsername" placeholder="Username" id="idUsername" value="<?php echo isset($_SESSION['username']) ? $_SESSION['username'] : ''; ?>">
             <input type="password" name="inputPassword" placeholder="Password" id="idPassword">
             <span class="error"><?php echo $loginError ?></span> <br>
-            <input type="submit" value="Send" id="buttonSend">
+            <input type="submit" value="Send" id="buttonSend" name="submit">
 
         </form>
         <aside>

@@ -1,3 +1,15 @@
+<?php
+session_start();
+$usernameValue = "";
+if (isset($_SESSION["username"])) {
+    $usernameValue = $_SESSION["username"];
+} else {
+    $usernameValue = "Nobody";
+}
+
+$firstName = $_POST["inputFirstName"];
+$lastName = $_POST["inputLastName"];
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -27,7 +39,7 @@
 
         header,
         footer,
-        section,
+        form,
         nav,
         article,
         aside,
@@ -37,14 +49,14 @@
         }
 
 
-        #section {
+        #form {
             display: flex;
             flex-direction: row;
             flex: 1;
             min-height: 0;
         }
 
-        section {
+        form {
             display: flex;
             flex: 1;
             flex-direction: column;
@@ -94,7 +106,7 @@
             margin-bottom: 8%;
         }
 
-        section>p {
+        form>p {
             display: flex;
             justify-content: flex-start;
             align-items: flex-start;
@@ -102,7 +114,7 @@
             margin-left: 8%;
         }
 
-        #footerSection>footer {
+        #footerform>footer {
             display: flex;
             background-color: white;
             flex: 0.20;
@@ -141,21 +153,21 @@
 
     </header>
 
-    <div id="section">
+    <div id="form">
         <nav>
 
         </nav>
-        <section>
+        <form action="Menu.php">
             <p>Data</p>
             <div id="divUsername">
-                <p>Username was registered at the web page.</p>
+                <p><?php echo $usernameValue ?> was registered at the web page.</p>
             </div>
             <div id="divRestData">
-                <p>First name Last name with email email y employed/unemployed and is a man/woman</p>
+                <p><?php echo $firstName . " " . $lastName ?> with email email y employed/unemployed and is a man/woman</p>
             </div>
             <input type="submit" value="Menu" id="buttonMenu">
 
-        </section>
+        </form>
         <aside>
 
         </aside>

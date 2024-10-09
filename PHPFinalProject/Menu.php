@@ -1,4 +1,19 @@
 <?php
+session_start();
+
+if (isset($_POST["logout"])) {
+    session_unset();
+    session_destroy();
+}
+$loginError = "";
+if (isset($_POST["goForm"])) {
+    if (isset($_SESSION["username"])) {
+        header("Location: Form.php");
+        exit();
+    } else {
+        $loginError = "You must log in before";
+    }
+}
 
 ?>
 <!DOCTYPE html>
@@ -86,8 +101,25 @@
             flex: 0.20;
             margin-left: 8%;
             margin-right: 8%;
+            font-size: xx-large
+        }
+
+        #formButton {
+            background-color: darkgreen;
+            color: white;
+            display: flex;
+            flex: 0.20;
+            margin-left: 8%;
+            margin-right: 8%;
 
             font-size: xx-large
+        }
+
+        form {
+            display: flex;
+            flex: 1;
+            flex-direction: column;
+
         }
 
         span {
@@ -152,18 +184,20 @@
         </nav>
         <section>
             <p>Menu</p>
-            <div id="divHyperlinkLogin">
-                <a href="Login.php">Hyperlink to Login screen</a>
-            </div>
-            <div id="divHyperlinkForm">
-                <a href="Form.php">Hyperlink to Form screen</a>
-            </div>
-            <span class="error"> Message error</span> <br>
-            <div id="divHyperlinkUser">
-                <a href="Data.php">Hyperlink to user´s data screen</a>
-            </div>
+            <form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>">
+                <div id="divHyperlinkLogin">
+                    <a href="Login.php">Hyperlink to Login screen</a>
+                </div>
+                <div id="divHyperlinkUser">
+                    <a href="Data.php">Hyperlink to user´s data screen</a>
+                </div>
+                <div id="divHyperlinkForm">
+                    <input type="submit" name="goForm" value="Go to the Form" id="formButton">
+                </div>
+                <span class="error"> <?php echo $loginError ?></span> <br>
+                <input type="submit" value="Log out" id="buttonLogOut" name="logout">
+            </form>
 
-            <input type="submit" value="Log out" id="buttonLogOut">
 
         </section>
         <aside>
