@@ -2,36 +2,43 @@
 session_start();
 
 $formError = $inputFirstName = $inputLastName = $inputEmail = $status = $selectValue = "";
+
+// Solo se ejecuta si se envía el formulario
 if (isset($_POST["send"])) {
-    if (empty(($_POST["inputFirstName"]))) {
+    // Verificamos la existencia de los campos antes de usarlos
+    if (isset($_POST["inputFirstName"]) && empty($_POST["inputFirstName"])) {
         $formError = "Input fields are mandatory";
     } else {
         $inputFirstName = $_POST["inputFirstName"];
+        $_SESSION["firstName"] = $_POST["inputFirstName"];
     }
 
-    if (empty(($_POST["inputLastName"]))) {
+    if (isset($_POST["inputLastName"]) && empty($_POST["inputLastName"])) {
         $formError = "Input fields are mandatory";
     } else {
         $inputLastName = $_POST["inputLastName"];
+        $_SESSION["lastName"] = $_POST["inputLastName"];
     }
 
-    if (empty(($_POST["inputEmail"]))) {
+    if (isset($_POST["inputEmail"]) && empty($_POST["inputEmail"])) {
         $formError = "Input fields are mandatory";
     } else {
         $inputEmail = $_POST["inputEmail"];
+        $_SESSION["email"] = $_POST["inputEmail"];
     }
 
-    if (empty(($_POST["status"]))) {
-    } else {
+    // Verificamos si el estado está definido
+    if (isset($_POST["status"])) {
         $status = $_POST["status"];
     }
 
-    if (empty(($_POST["selectValue"]))) {
-    } else {
+    // Verificamos si el valor del select está definido
+    if (isset($_POST["selectValue"])) {
         $selectValue = $_POST["selectValue"];
     }
 }
 ?>
+
 
 <!DOCTYPE html>
 <html lang="en">

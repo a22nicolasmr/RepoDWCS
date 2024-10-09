@@ -1,14 +1,30 @@
 <?php
 session_start();
-$usernameValue = "";
+$usernameValue = $firstName = $lastName = $email = "";
 if (isset($_SESSION["username"])) {
     $usernameValue = $_SESSION["username"];
 } else {
     $usernameValue = "Nobody";
 }
 
-$firstName = $_POST["inputFirstName"];
-$lastName = $_POST["inputLastName"];
+if (isset($_SESSION["firstName"])) {
+    $firstName = $_SESSION["firstName"];
+} else {
+    $firstName = "Nobody";
+}
+
+if (isset($_SESSION["firstName"])) {
+    $lastName = $_SESSION["lastName"];
+} else {
+    $lastName = "Nobody";
+}
+
+if (isset($_SESSION["email"])) {
+    $email = $_SESSION["email"];
+} else {
+    $email = "nothing";
+}
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -163,7 +179,7 @@ $lastName = $_POST["inputLastName"];
                 <p><?php echo $usernameValue ?> was registered at the web page.</p>
             </div>
             <div id="divRestData">
-                <p><?php echo $firstName . " " . $lastName ?> with email email y employed/unemployed and is a man/woman</p>
+                <p><?php echo $firstName . " " . $lastName ?> with email <?php echo $email ?> employed/unemployed and is a man/woman</p>
             </div>
             <input type="submit" value="Menu" id="buttonMenu">
 
