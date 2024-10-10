@@ -64,6 +64,7 @@ if (isset(($_POST["submit"]))) {
             margin: 0;
             /* Quitar márgenes del body */
             padding: 0;
+            background-color: #6d9eeb;
         }
 
         #headerFuera {

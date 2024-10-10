@@ -56,6 +56,7 @@ if (isset($_POST["send"])) {
             font-family: Verdana, Geneva, Tahoma, sans-serif;
             margin: 0;
             padding: 0;
+            background-color: #6d9eeb;
         }
 
         #headerFuera {
