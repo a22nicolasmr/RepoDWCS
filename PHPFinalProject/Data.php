@@ -179,7 +179,7 @@ if (isset($_SESSION["email"])) {
                 <p><?php echo $usernameValue ?> was registered at the web page.</p>
             </div>
             <div id="divRestData">
-                <p><?php echo $firstName . " " . $lastName ?> with email <?php echo $email ?> employed/unemployed and is a man/woman</p>
+                <p><?php echo $firstName . " " . $lastName ?> with email <?php echo $email ?></p>
             </div>
             <input type="submit" value="Menu" id="buttonMenu">
 

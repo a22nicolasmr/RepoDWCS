@@ -73,27 +73,29 @@ if (isset(($_POST["submit"]))) {
             background-color: #6d9eeb;
         }
 
-
-        form,
+        #firstForm,
         article,
         #headerform>header {
             color: black;
             border: 0.1px black solid;
         }
 
-        #form {
+        #firstForm {
             display: flex;
             flex-direction: row;
             flex: 1;
             min-height: 0;
         }
 
-        form {
+        #firstForm {
             display: flex;
             flex: 1;
             flex-direction: column;
             background-color: #c9daf8;
+
         }
+
+
 
         nav,
         aside {
@@ -129,14 +131,6 @@ if (isset(($_POST["submit"]))) {
             margin-right: 8%;
             margin-bottom: 8%;
             font-size: xx-large
-        }
-
-        span {
-            display: flex;
-            justify-content: center;
-            margin-left: 8%;
-            margin-right: 8%;
-            margin-bottom: 8%;
         }
 
         form>p {
@@ -187,6 +181,33 @@ if (isset(($_POST["submit"]))) {
             margin-bottom: 3%;
             font-size: xx-large
         }
+
+        #buttonBack {
+            background-color: #0000ff;
+            /* Mantiene el mismo color que el botón de enviar */
+            color: white;
+            display: flex;
+            flex: 0.20;
+            margin-left: 8%;
+            margin-right: 8%;
+            margin-bottom: 8%;
+            /* Espacio por debajo del botón de atrás */
+            font-size: xx-large;
+        }
+
+        span {
+            color: red;
+            font-size: large;
+
+            margin-left: 8%;
+
+            margin-right: 2%;
+
+            margin-bottom: 2%;
+
+            text-align: left;
+
+        }
     </style>
 </head>
 
@@ -199,7 +220,7 @@ if (isset(($_POST["submit"]))) {
         <nav>
 
         </nav>
-        <form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>">
+        <form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" id="firstForm">
             <p>Sign in</p>
             <!--this line checks if is any username in the session; if is true in the input will appear this name , in the other case the input will stay empty -->
             <input type="text" name="inputUsername" placeholder="Username" id="idUsername" value="<?php echo isset($_SESSION['username']) ? $_SESSION['username'] : ''; ?>">
@@ -208,6 +229,11 @@ if (isset(($_POST["submit"]))) {
             <input type="submit" value="Send" id="buttonSend" name="submit">
 
         </form>
+        <div id="divBackMenu">
+            <form action="Menu.php" id="formBackMenu">
+                <input type="submit" value="Menu" id="buttonBack" name="backMenu">
+            </form>
+        </div>
         <aside>
 
         </aside>

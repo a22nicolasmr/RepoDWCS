@@ -134,11 +134,17 @@ if (isset($_POST["send"])) {
         }
 
         span {
-            display: flex;
-            justify-content: center;
+            color: red;
+            font-size: large;
+
             margin-left: 8%;
-            margin-right: 8%;
-            margin-bottom: 8%;
+
+            margin-right: 2%;
+
+            margin-bottom: 2%;
+
+            text-align: left;
+
         }
 
         form>p {
@@ -149,13 +155,7 @@ if (isset($_POST["send"])) {
             margin-left: 8%;
         }
 
-        #footerform>footer {
-            display: flex;
-            background-color: white;
-            flex: 0.20;
-            justify-content: center;
-            align-items: center;
-        }
+
 
         input {
             margin-left: 2%;
@@ -169,6 +169,13 @@ if (isset($_POST["send"])) {
             flex: 0.10;
             justify-content: center;
             background-color: #6d9eeb;
+        }
+
+        input {
+            margin-left: 2%;
+            margin-right: 2%;
+            margin-bottom: 2%;
+            margin-top: 2%;
         }
 
         .error {
@@ -209,64 +216,85 @@ if (isset($_POST["send"])) {
             font-size: x-large;
         }
 
-        #idSelectGenre {
-            width: 20%;
-            height: 20%;
+        select {
+            width: 40%;
+            height: 70%;
             margin-left: 8%;
+
         }
 
         .error {
             color: red;
         }
 
-        #formBackMenu {
-            width: 100%;
-            height: auto;
+        section {
+            display: flex;
+            flex-direction: row;
+            flex: 0.6;
+            min-height: 0;
+        }
+
+
+
+        nav,
+        aside {
+            background-color: #6d9eeb;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex: 0.80;
         }
     </style>
+
 </head>
 
 <body>
     <header id="headerFuera"></header>
 
     <div id="form">
-        <nav></nav>
-        <form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" id="firstForm">
-            <p>Form</p>
-            <div id="divInputsName">
-                <input type="text" name="inputFirstName" placeholder="First Name" id="idFirstName" value="<?php echo isset($_POST['inputFirstName']) ? $inputFirstName : ''; ?>">
-                <input type="text" name="inputLastName" placeholder="Last Name" id="idLastName" value="<?php echo isset($_POST['inputLastName']) ? $inputLastName : ''; ?>">
-            </div>
+        <nav>
 
-            <input type="text" name="inputEmail" placeholder="Email" id="idEmail" value="<?php echo isset($_POST['inputEmail']) ? $inputEmail : ''; ?>">
-            <span class="error"><?php echo $formError ?></span>
-            <div id="radioButtons">
-                <label for="employed">Employed</label>
-                <input type="radio" value="Employed" name="status" <?php if (isset($status) && $status == "Employed") echo "checked" ?>>
-                <label for="unemployed">Unemployed</label>
-                <input type="radio" value="Unemployed" name="status" <?php if (isset($status) && $status == "Unemployed") echo "checked" ?>>
-            </div>
+        </nav>
+        <div id="divSection">
+            <section>
+                <form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" id="firstForm">
+                    <p>Form</p>
+                    <div id="divInputsName">
+                        <input type="text" name="inputFirstName" placeholder="First Name" id="idFirstName" value="<?php echo isset($_POST['inputFirstName']) ? $inputFirstName : ''; ?>">
+                        <input type="text" name="inputLastName" placeholder="Last Name" id="idLastName" value="<?php echo isset($_POST['inputLastName']) ? $inputLastName : ''; ?>">
+                    </div>
 
-            <select name="selectValue">
-                <option value="">--Select one--</option>
-                <option value="Male" <?php if (isset($selectValue) && $selectValue == "Male") echo "selected" ?>>Male</option>
-                <option value="Female" <?php if (isset($selectValue) && $selectValue == "Female") echo "selected" ?>>Female</option>
-                <option value="Other" <?php if (isset($selectValue) && $selectValue == "Other") echo "selected" ?>>Other</option>
-            </select>
+                    <input type="text" name="inputEmail" placeholder="Email" id="idEmail" value="<?php echo isset($_POST['inputEmail']) ? $inputEmail : ''; ?>">
+                    <span class="error"><?php echo $formError ?></span>
+                    <div id="radioButtons">
+                        <label for="employed">Employed</label>
+                        <input type="radio" value="Employed" name="status" <?php if (isset($status) && $status == "Employed") echo "checked" ?>>
+                        <label for="unemployed">Unemployed</label>
+                        <input type="radio" value="Unemployed" name="status" <?php if (isset($status) && $status == "Unemployed") echo "checked" ?>>
+                    </div>
 
-            <input type="submit" value="Send" id="buttonsend" name="send">
-        </form>
+                    <select name="selectValue" id="selectGenre">
+                        <option value="">--Select one--</option>
+                        <option value="Male" <?php if (isset($selectValue) && $selectValue == "Male") echo "selected" ?>>Male</option>
+                        <option value="Female" <?php if (isset($selectValue) && $selectValue == "Female") echo "selected" ?>>Female</option>
+                        <option value="Other" <?php if (isset($selectValue) && $selectValue == "Other") echo "selected" ?>>Other</option>
+                    </select>
+
+                    <input type="submit" value="Send" id="buttonsend" name="send">
+                    <aside>
+
+                    </aside>
+                </form>
+            </section>
+        </div>
 
 
-        <aside></aside>
-    </div><br>
+    </div>
     <div id="divBackMenu">
         <form action="Menu.php" id="formBackMenu">
-            <input type="submit" value="Back to the Menu" id="buttonBack" name="backMenu">
+            <input type="submit" value="Menu" id="buttonBack" name="backMenu">
         </form>
     </div>
-
-    <footer id="footerFuera"></footer>
 </body>
 
 </html>
