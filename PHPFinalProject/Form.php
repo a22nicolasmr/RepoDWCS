@@ -27,14 +27,17 @@ if (isset($_POST["send"])) {
         $_SESSION["email"] = $_POST["inputEmail"];
     }
 
+
     // Verificamos si el estado está definido
     if (isset($_POST["status"])) {
         $status = $_POST["status"];
+        $_SESSION["status"] = $status;
     }
 
     // Verificamos si el valor del select está definido
     if (isset($_POST["selectValue"])) {
         $selectValue = $_POST["selectValue"];
+        $_SESSION["selectValue"] = $selectValue;
     }
 }
 ?>
@@ -276,8 +279,8 @@ if (isset($_POST["send"])) {
 
                     <select name="selectValue" id="selectGenre">
                         <option value="">--Select one--</option>
-                        <option value="Male" <?php if (isset($selectValue) && $selectValue == "Male") echo "selected" ?>>Male</option>
-                        <option value="Female" <?php if (isset($selectValue) && $selectValue == "Female") echo "selected" ?>>Female</option>
+                        <option value="Man" <?php if (isset($selectValue) && $selectValue == "Man") echo "selected" ?>>Man</option>
+                        <option value="Woman" <?php if (isset($selectValue) && $selectValue == "Woman") echo "selected" ?>>Woman</option>
                         <option value="Other" <?php if (isset($selectValue) && $selectValue == "Other") echo "selected" ?>>Other</option>
                     </select>
 

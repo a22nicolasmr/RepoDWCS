@@ -1,29 +1,42 @@
 <?php
 session_start();
-$usernameValue = $firstName = $lastName = $email = "";
+$usernameValue = $firstName = $lastName = $email = $status = $selectValue = "";
 if (isset($_SESSION["username"])) {
     $usernameValue = $_SESSION["username"];
 } else {
-    $usernameValue = "Nobody";
+    $usernameValue = "no username";
 }
 
 if (isset($_SESSION["firstName"])) {
     $firstName = $_SESSION["firstName"];
 } else {
-    $firstName = "Nobody";
+    $firstName = "no first name";
 }
 
 if (isset($_SESSION["firstName"])) {
     $lastName = $_SESSION["lastName"];
 } else {
-    $lastName = "Nobody";
+    $lastName = "no last name";
 }
 
 if (isset($_SESSION["email"])) {
     $email = $_SESSION["email"];
 } else {
-    $email = "nothing";
+    $email = "no email";
 }
+if (isset($_SESSION["status"])) {
+    $status = $_SESSION["status"];
+} else {
+    $status = "no status";
+}
+
+if (isset($_SESSION["selectValue"])) {
+    $selectValue = $_SESSION["selectValue"];
+} else {
+    $selectValue = "no genre";
+}
+
+
 
 ?>
 <!DOCTYPE html>
@@ -179,7 +192,7 @@ if (isset($_SESSION["email"])) {
                 <p><?php echo $usernameValue ?> was registered at the web page.</p>
             </div>
             <div id="divRestData">
-                <p><?php echo $firstName . " " . $lastName ?> with email <?php echo $email ?></p>
+                <p><?php echo $firstName . " " . $lastName ?> with email <?php echo $email ?> is <?php echo $status ?> and is a <?php echo $selectValue ?></p>
             </div>
             <input type="submit" value="Menu" id="buttonMenu">
 
