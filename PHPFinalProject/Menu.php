@@ -1,10 +1,16 @@
 <?php
+
+//check if the session is started 
 session_start();
 
+//is the button logout is clicked the session ends
 if (isset($_POST["logout"])) {
     session_unset();
     session_destroy();
 }
+
+//if you try to go to the form without being logged an error will be displayed
+//if you are logged you will be redirected to Form.php
 $loginError = "";
 if (isset($_POST["goForm"])) {
     if (isset($_SESSION["username"])) {
@@ -32,7 +38,6 @@ if (isset($_POST["goForm"])) {
             font-family: Verdana, Geneva, Tahoma, sans-serif;
 
             margin: 0;
-            /* Quitar márgenes del body */
             padding: 0;
         }
 
@@ -74,7 +79,6 @@ if (isset($_POST["goForm"])) {
             justify-content: center;
             align-items: center;
             flex: 0.20;
-            /* Reducir márgenes */
         }
 
         #divHyperlinkLogin,
@@ -90,8 +94,6 @@ if (isset($_POST["goForm"])) {
             margin-bottom: 3%;
             color: black;
             border: 0.1px black solid;
-
-            /* Reducir márgenes */
         }
 
         #buttonLogOut {
@@ -144,8 +146,6 @@ if (isset($_POST["goForm"])) {
             flex: 0.20;
             justify-content: center;
             align-items: center;
-
-            /* Reducir márgenes */
         }
 
         a {
@@ -186,10 +186,10 @@ if (isset($_POST["goForm"])) {
             <p>Menu</p>
             <form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>">
                 <div id="divHyperlinkLogin">
-                    <a href="Login.php">Hyperlink to Login screen</a>
+                    <a href="Login.php">Login screen</a>
                 </div>
                 <div id="divHyperlinkUser">
-                    <a href="Data.php">Hyperlink to user´s data screen</a>
+                    <a href="Data.php">User´s data screen</a>
                 </div>
                 <div id="divHyperlinkForm">
                     <input type="submit" name="goForm" value="Go to the Form" id="formButton">

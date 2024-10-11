@@ -1,5 +1,8 @@
 <?php
 session_start();
+
+//it checks if the username(n) and pasword(p) are correct the user will be redirected to the Menu
+//if false an error will be displayed
 function check_user($username, $password): bool
 {
     $result = false;
@@ -62,7 +65,6 @@ if (isset(($_POST["submit"]))) {
             font-family: Verdana, Geneva, Tahoma, sans-serif;
 
             margin: 0;
-            /* Quitar márgenes del body */
             padding: 0;
             background-color: #6d9eeb;
         }
@@ -105,7 +107,6 @@ if (isset(($_POST["submit"]))) {
             justify-content: center;
             align-items: center;
             flex: 0.20;
-            /* Reducir márgenes */
         }
 
         #headerform>header,
@@ -120,7 +121,6 @@ if (isset(($_POST["submit"]))) {
             margin-right: 8%;
             margin-bottom: 8%;
 
-            /* Reducir márgenes */
         }
 
         #buttonSend {
@@ -149,7 +149,7 @@ if (isset(($_POST["submit"]))) {
             justify-content: center;
             align-items: center;
 
-            /* Reducir márgenes */
+
         }
 
         input {
@@ -185,14 +185,14 @@ if (isset(($_POST["submit"]))) {
 
         #buttonBack {
             background-color: #0000ff;
-            /* Mantiene el mismo color que el botón de enviar */
+
             color: white;
             display: flex;
             flex: 0.20;
             margin-left: 8%;
             margin-right: 8%;
             margin-bottom: 8%;
-            /* Espacio por debajo del botón de atrás */
+
             font-size: xx-large;
         }
 

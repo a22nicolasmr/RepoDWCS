@@ -1,5 +1,8 @@
 <?php
 session_start();
+
+//these couple of if check if the session variables exist
+//if true, their values will be shown; if false , default values will be show
 $usernameValue = $firstName = $lastName = $email = $status = $selectValue = "";
 if (isset($_SESSION["username"])) {
     $usernameValue = $_SESSION["username"];
@@ -36,8 +39,6 @@ if (isset($_SESSION["selectValue"])) {
     $selectValue = "no genre";
 }
 
-
-
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -55,7 +56,6 @@ if (isset($_SESSION["selectValue"])) {
             font-family: Verdana, Geneva, Tahoma, sans-serif;
 
             margin: 0;
-            /* Quitar márgenes del body */
             padding: 0;
         }
 
@@ -99,7 +99,6 @@ if (isset($_SESSION["selectValue"])) {
             justify-content: center;
             align-items: center;
             flex: 0.20;
-            /* Reducir márgenes */
         }
 
         #divUsername>p,
@@ -113,7 +112,6 @@ if (isset($_SESSION["selectValue"])) {
             margin-right: 8%;
             margin-bottom: 8%;
 
-            /* Reducir márgenes */
         }
 
         #buttonMenu {
@@ -150,7 +148,6 @@ if (isset($_SESSION["selectValue"])) {
             justify-content: center;
             align-items: center;
 
-            /* Reducir márgenes */
         }
 
         a {

@@ -3,9 +3,10 @@ session_start();
 
 $formError = $inputFirstName = $inputLastName = $inputEmail = $status = $selectValue = "";
 
-// Solo se ejecuta si se envía el formulario
+//if the button send is pressed it checks if the input fields are empty
+//if they are empty an error message will be shown
+//if the are not empty their values will be stored into session variables
 if (isset($_POST["send"])) {
-    // Verificamos la existencia de los campos antes de usarlos
     if (isset($_POST["inputFirstName"]) && empty($_POST["inputFirstName"])) {
         $formError = "Input fields are mandatory";
     } else {
@@ -27,14 +28,10 @@ if (isset($_POST["send"])) {
         $_SESSION["email"] = $_POST["inputEmail"];
     }
 
-
-    // Verificamos si el estado está definido
     if (isset($_POST["status"])) {
         $status = $_POST["status"];
         $_SESSION["status"] = $status;
     }
-
-    // Verificamos si el valor del select está definido
     if (isset($_POST["selectValue"])) {
         $selectValue = $_POST["selectValue"];
         $_SESSION["selectValue"] = $selectValue;
@@ -120,20 +117,18 @@ if (isset($_POST["send"])) {
             margin-left: 8%;
             margin-right: 8%;
             margin-bottom: 2%;
-            /* Espacio reducido entre botones */
+
             font-size: xx-large;
         }
 
         #buttonBack {
             background-color: #0000ff;
-            /* Mantiene el mismo color que el botón de enviar */
             color: white;
             display: flex;
             flex: 0.20;
             margin-left: 8%;
             margin-right: 8%;
             margin-bottom: 8%;
-            /* Espacio por debajo del botón de atrás */
             font-size: xx-large;
         }
 
