@@ -1,16 +1,16 @@
 <?php
 
-//check if the session is started 
+// Check if the session has started
 session_start();
 
-//is the button logout is clicked the session ends
+// If the logout button is clicked, the session ends
 if (isset($_POST["logout"])) {
     session_unset();
     session_destroy();
 }
 
-//if you try to go to the form without being logged an error will be displayed
-//if you are logged you will be redirected to Form.php
+// If you try to go to the form without being logged in, an error will be displayed
+// If you are logged in, you will be redirected to Form.php
 $loginError = "";
 if (isset($_POST["goForm"])) {
     if (isset($_SESSION["username"])) {

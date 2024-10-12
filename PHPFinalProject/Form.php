@@ -3,9 +3,9 @@ session_start();
 
 $formError = $inputFirstName = $inputLastName = $inputEmail = $status = $selectValue = "";
 
-//if the button send is pressed it checks if the input fields are empty
-//if they are empty an error message will be shown
-//if the are not empty their values will be stored into session variables
+// If the send button is pressed, it checks if the input fields are empty.
+// If they are empty, an error message will be shown.
+// If they are not empty, their values will be stored in session variables.
 if (isset($_POST["send"])) {
     if (isset($_POST["inputFirstName"]) && empty($_POST["inputFirstName"])) {
         $formError = "Input fields are mandatory";

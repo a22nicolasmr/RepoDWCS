@@ -1,8 +1,8 @@
 <?php
 session_start();
 
-//these couple of if check if the session variables exist
-//if true, their values will be shown; if false , default values will be show
+// These if statements check if the session variables exist.
+// If true, their values will be shown; if false, default values will be shown.
 $usernameValue = $firstName = $lastName = $email = $status = $selectValue = "";
 if (isset($_SESSION["username"])) {
     $usernameValue = $_SESSION["username"];
@@ -16,7 +16,7 @@ if (isset($_SESSION["firstName"])) {
     $firstName = "no first name";
 }
 
-if (isset($_SESSION["firstName"])) {
+if (isset($_SESSION["lastName"])) {
     $lastName = $_SESSION["lastName"];
 } else {
     $lastName = "no last name";

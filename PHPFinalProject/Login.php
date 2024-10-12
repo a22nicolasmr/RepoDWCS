@@ -1,8 +1,9 @@
 <?php
 session_start();
 
-//it checks if the username(n) and pasword(p) are correct the user will be redirected to the Menu
-//if false an error will be displayed
+// It checks if the username ("n") and password ("p") are correct. 
+// If true, the user will be redirected to the Menu.
+// If false, an error will be displayed.
 function check_user($username, $password): bool
 {
     $result = false;
