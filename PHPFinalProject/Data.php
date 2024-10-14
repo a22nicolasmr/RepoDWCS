@@ -61,12 +61,13 @@ if (isset($_SESSION["selectValue"])) {
             height: 100vh;
             width: 100vw;
             font-family: Verdana, Geneva, Tahoma, sans-serif;
-
             margin: 0;
             padding: 0;
+            box-sizing: border-box;
         }
 
-        #headerFuera {
+        #headerFuera,
+        #footerFuera {
             display: flex;
             flex: 0.10;
             justify-content: center;
@@ -84,12 +85,12 @@ if (isset($_SESSION["selectValue"])) {
             border: 0.1px black solid;
         }
 
-
         #form {
             display: flex;
             flex-direction: row;
             flex: 1;
             min-height: 0;
+            overflow: hidden;
         }
 
         form {
@@ -97,6 +98,7 @@ if (isset($_SESSION["selectValue"])) {
             flex: 1;
             flex-direction: column;
             background-color: white;
+            padding: 1rem;
         }
 
         nav,
@@ -112,40 +114,36 @@ if (isset($_SESSION["selectValue"])) {
         #divRestData>p {
             display: flex;
             background-color: white;
-            flex: 0.20;
+            flex: 1;
             justify-content: center;
             align-items: center;
-            margin-left: 8%;
-            margin-right: 8%;
-            margin-bottom: 8%;
-
+            margin: 7% 0;
+            text-align: center;
         }
 
         #buttonMenu {
             background-color: #0000ff;
             color: white;
-            display: flex;
-            flex: 0.20;
-            margin-left: 8%;
-            margin-right: 8%;
-            margin-bottom: 8%;
-            font-size: xx-large
+            display: block;
+            margin: 7% auto;
+            padding: 1rem;
+            font-size: xx-large;
+            width: 80%;
         }
 
         span {
             display: flex;
             justify-content: center;
-            margin-left: 8%;
-            margin-right: 8%;
-            margin-bottom: 8%;
+            margin: 8% 0;
         }
 
         form>p {
             display: flex;
             justify-content: flex-start;
             align-items: flex-start;
-            font-size: 80px;
-            margin-left: 8%;
+            font-size: 2em;
+            margin-left: 0;
+            text-align: center;
         }
 
         #footerform>footer {
@@ -154,21 +152,48 @@ if (isset($_SESSION["selectValue"])) {
             flex: 0.20;
             justify-content: center;
             align-items: center;
-
         }
 
         a {
-            margin-left: 2%;
-            margin-right: 2%;
-            margin-bottom: 2%;
-            margin-top: 2%;
+            margin: 2%;
         }
 
-        #footerFuera {
-            display: flex;
-            flex: 0.10;
-            justify-content: center;
-            background-color: #c9daf8;
+
+        /* Media Queries for Responsive Design */
+        @media (max-width: 768px) {
+
+            nav,
+            aside {
+                flex: 0.15;
+                /* Reduce side panels on smaller screens */
+            }
+
+            form>p {
+                font-size: 1.5em;
+                /* Smaller font size for smaller screens */
+            }
+
+            #buttonMenu {
+                font-size: large;
+                /* Smaller button text */
+                width: 90%;
+                /* Make button width responsive */
+            }
+        }
+
+        @media (max-width: 480px) {
+            form>p {
+                font-size: 1.2em;
+                /* Smaller font size for very small screens */
+            }
+
+            #buttonMenu {
+                font-size: medium;
+                /* Smaller button text */
+                width: 95%;
+                /* Make button width responsive */
+                margin-bottom: 5%;
+            }
         }
 
         .error {
@@ -176,7 +201,8 @@ if (isset($_SESSION["selectValue"])) {
         }
 
         div>p {
-            font-size: xx-large;
+            font-size: 2em;
+            /* Use relative units for better scaling */
         }
     </style>
 </head>

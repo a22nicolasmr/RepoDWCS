@@ -38,6 +38,16 @@ if (isset($_POST["goForm"])) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Menu</title>
     <style>
+        html,
+        body {
+            width: 100vw;
+            /* 100% del ancho de la ventana */
+            height: 100vh;
+            /* 100% de la altura de la ventana */
+            margin: 0;
+            padding: 0;
+        }
+
         body {
             display: flex;
             flex-direction: column;
@@ -169,6 +179,8 @@ if (isset($_POST["goForm"])) {
             flex: 0.10;
             justify-content: center;
             background-color: #c9daf8;
+            margin-top: auto;
+            box-sizing: border-box;
         }
 
         .error {

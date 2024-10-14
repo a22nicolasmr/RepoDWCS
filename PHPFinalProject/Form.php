@@ -55,200 +55,78 @@ if (isset($_POST["send"])) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Form</title>
     <style>
+        html,
+        body {
+            height: 100%;
+            margin: 0;
+            padding: 0;
+        }
+
         body {
             display: flex;
             flex-direction: column;
-            height: 100vh;
-            width: 100vw;
-            font-family: Verdana, Geneva, Tahoma, sans-serif;
-            margin: 0;
-            padding: 0;
             background-color: #6d9eeb;
         }
 
-        #headerFuera {
+        #form {
+            margin-top: 10%;
             display: flex;
-            flex: 0.10;
+            flex: 1;
             justify-content: center;
-            background-color: #6d9eeb;
-        }
-
-        #firstForm,
-        article,
-        #headerform>header {
-            color: black;
-            border: 0.1px black solid;
+            align-items: center;
+            width: 100%;
         }
 
         #firstForm {
             display: flex;
-            flex-direction: row;
-            flex: 1;
-            min-height: 0;
-        }
-
-        #firstForm {
-            display: flex;
-            flex: 1;
             flex-direction: column;
             background-color: #c9daf8;
+            padding: 70px;
+            width: 100%;
+            height: 60%;
+            max-width: 900px;
+            box-sizing: border-box;
+            border: 1px solid black;
+            border-radius: 0;
         }
 
-        nav,
-        aside {
-            background-color: #6d9eeb;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            flex: 0.20;
-        }
-
-        #headerform>header,
-        #articleform>article,
-        #footerform>footer {
-            display: flex;
-            background-color: white;
-            flex: 0.20;
-            justify-content: center;
-            align-items: center;
-            margin-left: 8%;
-            margin-right: 8%;
-            margin-bottom: 8%;
+        input,
+        select {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            box-sizing: border-box;
+            font-size: medium;
         }
 
         #buttonsend {
             background-color: #0000ff;
             color: white;
-            display: flex;
-            flex: 0.20;
-            margin-left: 8%;
-            margin-right: 8%;
-            margin-bottom: 2%;
+            padding: 10px;
+            margin-top: 10px;
+            width: 100%;
+            font-size: large;
+        }
 
-            font-size: xx-large;
+        #divBackMenu {
+            display: flex;
+            flex: 1;
+            justify-content: center;
+            margin-top: 20px;
         }
 
         #buttonBack {
             background-color: #0000ff;
             color: white;
-            display: flex;
-            flex: 0.20;
-            margin-left: 8%;
-            margin-right: 8%;
-            margin-bottom: 8%;
-            font-size: xx-large;
-        }
-
-        span {
-            color: red;
+            padding: 10px;
+            margin-top: 10px;
+            width: 15vw;
             font-size: large;
-
-            margin-left: 8%;
-
-            margin-right: 2%;
-
-            margin-bottom: 2%;
-
-            text-align: left;
-
-        }
-
-        form>p {
-            display: flex;
-            justify-content: flex-start;
-            align-items: flex-start;
-            font-size: 80px;
-            margin-left: 8%;
-        }
-
-
-
-        input {
-            margin-left: 2%;
-            margin-right: 2%;
-            margin-bottom: 2%;
-            margin-top: 2%;
-        }
-
-        #footerFuera {
-            display: flex;
-            flex: 0.10;
-            justify-content: center;
-            background-color: #6d9eeb;
-        }
-
-        input {
-            margin-left: 2%;
-            margin-right: 2%;
-            margin-bottom: 2%;
-            margin-top: 2%;
-        }
-
-        .error {
-            color: red;
-        }
-
-        #idEmail {
-            display: flex;
-            flex: 0.20;
-            margin-left: 8%;
-            margin-right: 8%;
-            margin-bottom: 3%;
-            font-size: xx-large;
-        }
-
-        #divInputsName {
-            display: flex;
-            flex-direction: row;
-        }
-
-        #idLastName {
-            display: flex;
-            flex: 0.47;
-            margin-bottom: 3%;
-            font-size: xx-large;
-        }
-
-        #idFirstName {
-            display: flex;
-            flex: 0.46;
-            margin-left: 8%;
-            margin-bottom: 3%;
-            font-size: xx-large;
         }
 
         #radioButtons {
-            margin-left: 8%;
-            font-size: x-large;
-        }
-
-        select {
-            width: 40%;
-            height: 70%;
-            margin-left: 8%;
-
-        }
-
-        .error {
-            color: red;
-        }
-
-        section {
             display: flex;
             flex-direction: row;
-            flex: 0.6;
-            min-height: 0;
-        }
-
-
-
-        nav,
-        aside {
-            background-color: #6d9eeb;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            flex: 0.80;
         }
     </style>
 
