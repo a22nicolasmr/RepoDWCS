@@ -1,40 +1,47 @@
 <?php
 session_start();
+function test_input($data)
+{
+    $data = trim($data);
+    $data = stripslashes($data);
+    $data = htmlspecialchars($data);
+    return $data;
+}
 
 // These if statements check if the session variables exist.
 // If true, their values will be shown; if false, default values will be shown.
 $usernameValue = $firstName = $lastName = $email = $status = $selectValue = "";
 if (isset($_SESSION["username"])) {
-    $usernameValue = $_SESSION["username"];
+    $usernameValue = test_input($_SESSION["username"]);
 } else {
     $usernameValue = "no username";
 }
 
 if (isset($_SESSION["firstName"])) {
-    $firstName = $_SESSION["firstName"];
+    $firstName = test_input($_SESSION["firstName"]);
 } else {
     $firstName = "no first name";
 }
 
 if (isset($_SESSION["lastName"])) {
-    $lastName = $_SESSION["lastName"];
+    $lastName = test_input($_SESSION["lastName"]);
 } else {
     $lastName = "no last name";
 }
 
 if (isset($_SESSION["email"])) {
-    $email = $_SESSION["email"];
+    $email = test_input($_SESSION["email"]);
 } else {
     $email = "no email";
 }
 if (isset($_SESSION["status"])) {
-    $status = $_SESSION["status"];
+    $status = test_input($_SESSION["status"]);
 } else {
     $status = "no status";
 }
 
 if (isset($_SESSION["selectValue"])) {
-    $selectValue = $_SESSION["selectValue"];
+    $selectValue = test_input($_SESSION["selectValue"]);
 } else {
     $selectValue = "no genre";
 }

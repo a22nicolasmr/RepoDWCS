@@ -3,6 +3,14 @@
 // Check if the session has started
 session_start();
 
+function test_input($data)
+{
+    $data = trim($data);
+    $data = stripslashes($data);
+    $data = htmlspecialchars($data);
+    return $data;
+}
+
 // If the logout button is clicked, the session ends
 if (isset($_POST["logout"])) {
     session_unset();
@@ -184,7 +192,7 @@ if (isset($_POST["goForm"])) {
         </nav>
         <section>
             <p>Menu</p>
-            <form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>">
+            <form method="post" action="<?php echo test_input($_SERVER["PHP_SELF"]); ?>">
                 <div id="divHyperlinkLogin">
                     <a href="Login.php">Login screen</a>
                 </div>

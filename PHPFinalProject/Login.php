@@ -222,7 +222,7 @@ if (isset(($_POST["submit"]))) {
         <nav>
 
         </nav>
-        <form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" id="firstForm">
+        <form method="post" action="<?php echo test_input($_SERVER["PHP_SELF"]); ?>" id="firstForm">
             <p>Sign in</p>
             <!--this line checks if is any username in the session; if is true in the input will appear this name , in the other case the input will stay empty -->
             <input type="text" name="inputUsername" placeholder="Username" id="idUsername" value="<?php echo isset($_SESSION['username']) ? $_SESSION['username'] : ''; ?>">

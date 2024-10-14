@@ -1,5 +1,12 @@
 <?php
 session_start();
+function test_input($data)
+{
+    $data = trim($data);
+    $data = stripslashes($data);
+    $data = htmlspecialchars($data);
+    return $data;
+}
 
 $formError = $inputFirstName = $inputLastName = $inputEmail = $status = $selectValue = "";
 
@@ -256,7 +263,7 @@ if (isset($_POST["send"])) {
         </nav>
         <div id="divSection">
             <section>
-                <form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" id="firstForm">
+                <form method="post" action="<?php echo test_input($_SERVER["PHP_SELF"]); ?>" id="firstForm">
                     <p>Form</p>
                     <div id="divInputsName">
                         <input type="text" name="inputFirstName" placeholder="First Name" id="idFirstName" value="<?php echo isset($_POST['inputFirstName']) ? $inputFirstName : ''; ?>">
