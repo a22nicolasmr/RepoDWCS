@@ -18,29 +18,29 @@ if (isset($_POST["send"])) {
         $formError = "Input fields are mandatory";
     } else {
         $inputFirstName = $_POST["inputFirstName"];
-        $_SESSION["firstName"] = $_POST["inputFirstName"];
+        $_SESSION["firstName"] = test_input($_POST["inputFirstName"]);
     }
 
     if (isset($_POST["inputLastName"]) && empty($_POST["inputLastName"])) {
         $formError = "Input fields are mandatory";
     } else {
         $inputLastName = $_POST["inputLastName"];
-        $_SESSION["lastName"] = $_POST["inputLastName"];
+        $_SESSION["lastName"] = test_input($_POST["inputLastName"]);
     }
 
     if (isset($_POST["inputEmail"]) && empty($_POST["inputEmail"])) {
         $formError = "Input fields are mandatory";
     } else {
         $inputEmail = $_POST["inputEmail"];
-        $_SESSION["email"] = $_POST["inputEmail"];
+        $_SESSION["email"] = test_input($_POST["inputEmail"]);
     }
 
     if (isset($_POST["status"])) {
-        $status = $_POST["status"];
+        $status = test_input($_POST["status"]);
         $_SESSION["status"] = $status;
     }
     if (isset($_POST["selectValue"])) {
-        $selectValue = $_POST["selectValue"];
+        $selectValue = test_input($_POST["selectValue"]);
         $_SESSION["selectValue"] = $selectValue;
     }
 }
