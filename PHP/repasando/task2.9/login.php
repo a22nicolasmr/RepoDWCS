@@ -1,4 +1,5 @@
 <?php
+session_start();
 function checkLogin($user, $pass): bool
 {
     $returnValue = false;
@@ -26,21 +27,21 @@ function test_input($data)
 
 $errorUsername = $errorPassword = $inputUsername = $inputPassword = $errorLogin = "";
 
-if ($_POST["buttonLogin"]) {
+if (isset($_GET["buttonLogin"])) {
 
     if (isset($_SESSION["username"])) {
         $errorLogin = "You are already logged";
     } else {
-        if (empty($_POST["inputUsername"])) {
+        if (empty($_GET["inputUsername"])) {
             $errorUsername = "Username obligatorio";
         } else {
-            $inputUsername = test_input($_POST["inputUsername"]);
+            $inputUsername = test_input($_GET["inputUsername"]);
         }
 
-        if (empty($_POST["inputPassword"])) {
+        if (empty($_GET["inputPassword"])) {
             $errorPassword = "Password obligatorio";
         } else {
-            $inputPassword = test_input($_POST["inputPassword"]);
+            $inputPassword = test_input($_GET["inputPassword"]);
         }
 
         if (checkLogin($inputUsername, $inputPassword)) {
@@ -53,7 +54,8 @@ if ($_POST["buttonLogin"]) {
         }
     }
 }
-if ($_POST["buttonLogout"]) {
+if (isset($_GET["buttonLogout"])) {
+
     session_unset();
     session_destroy();
 
@@ -78,7 +80,7 @@ if ($_POST["buttonLogout"]) {
 
 <body>
     <h1>Login</h1>
-    <form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>">
+    <form method="get" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>">
         <label for="inputUsername">Username:</label>
         <input type="text" name="inputUsername"><br>
         <span class="error"><?php echo $errorUsername; ?><br>

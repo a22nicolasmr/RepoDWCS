@@ -1,51 +1,15 @@
-<?php
-session_start();
-function test_input($data)
-{
-    $data = trim($data);
-    $data = stripslashes($data);
-    $data = htmlspecialchars($data);
-    return $data;
-}
-
-$errorNameSurnames = $inputValue = $selectValue = "";
-if (isset($_GET["sendButton"])) {
-    if (empty($_GET["nameSurnamesInput"])) {
-        $errorNameSurnames = "Campo obligatorio";
-    } else {
-        $inputValue = test_input($_GET["nameSurnamesInput"]);
-        $selectValue = $_GET["select"];
-
-        $_SESSION["inputValue"] = $inputValue;
-        $_SESSION["selectValue"] = $selectValue;
-        header("Location:manage.php?nameSurnamesInput=" . $inputValue . "&select=" . $selectValue);
-    }
-}
-
-if ($_GET["resended"] == true) {
-}
-
-if (isset($_GET["backLogin"])) {
-    header("Location:login.php");
-}
-?>
 <!DOCTYPE html>
 <html lang="es">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <style>
-        .error {
-            color: red;
-        }
-    </style>
+    <title>Manage2</title>
 </head>
 
 <body>
-    <h1>Primera pagina</h1>
-    <form method="get" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>">
+    <h1>manage2</h1>
+    <form method="get" action="manage.php?status=<?php ?>">
         <label for="nameSurnamesInput">Name and surnames: </label>
         <input type="text" name="nameSurnamesInput" value=<?php if (isset($inputValue) ? $inputValue : ""); ?>><br>
         <span class="error"><?php echo $errorNameSurnames; ?><br>
@@ -68,6 +32,12 @@ if (isset($_GET["backLogin"])) {
                 <option value="Mongo database" <?php if (isset($selectValue) && $selectValue === "Mongo database")
                                                     echo "selected"; ?>>Mongo database</option>
             </select><br><br>
+
+            <label for="person">In-person classes</label>
+            <input type="radio" name="status" value="Person" ?><br>
+
+            <label for="distance">Distance classes</label>
+            <input type="radio" name="status" value="Distance" ?><br>
 
             <input type="submit" value="Send data" name="sendButton">
             <input type="submit" value="Go to Login" name="backLogin">

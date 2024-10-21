@@ -24,28 +24,28 @@ function test_input($data)
 <body>
     <?php
     $inputUsername = $inputPassword = $cityemployement = $errorUsername = $errorPassword = $errorCity = $opcionWebServer = $status = $singed = "";
-    if (isset($_POST["enviar"])) {
-        if (empty($_POST["vUsername"])) {
+    if (isset($_GET["enviar"])) {
+        if (empty($_GET["vUsername"])) {
             $errorUsername = "Username obligatorio";
         } else {
-            $inputUsername = test_input($_POST["vUsername"]);
+            $inputUsername = test_input($_GET["vUsername"]);
         }
 
-        if (empty($_POST["vPassword"])) {
+        if (empty($_GET["vPassword"])) {
             $errorPassword = "Password obligatorio";
         } else {
-            $inputPassword = test_input($_POST["vPassword"]);
+            $inputPassword = test_input($_GET["vPassword"]);
         }
 
-        if (empty($_POST["vCity"])) {
+        if (empty($_GET["vCity"])) {
             $errorCity = "City obligatorio";
         } else {
-            $cityemployement = test_input($_POST["vCity"]);
+            $cityemployement = test_input($_GET["vCity"]);
         }
 
-        $opcionWebServer = $_POST["opcionWebServer"];
-        $status = $_POST["status"];
-        $singed = $_POST["singed"];
+        $opcionWebServer = $_GET["opcionWebServer"];
+        $status = $_GET["status"];
+        $singed = $_GET["singed"];
 
         if ($errorUsername === "" && $errorCity === "" && $errorPassword === "") {
             // No hay errores, puedes proceder con el procesamiento de los datos

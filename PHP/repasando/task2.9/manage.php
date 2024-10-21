@@ -1,3 +1,12 @@
+<?php
+session_start();
+
+$inputValue = $_GET["nameSurnamesInput"];
+$selectValue = $_GET["select"];
+$resended = true;
+echo $inputValue . " has selected " . $selectValue;
+
+?>
 <!DOCTYPE html>
 <html lang="es">
 
@@ -8,6 +17,10 @@
 </head>
 
 <body>
+    <form action="manage2.php?inputValue= <?php echo $inputValue; ?>&selectValue= <?php echo $selectValue; ?>">
+
+        <input type="submit" name="buttonSubmit" value="Submit">
+    </form>
 
 </body>
 

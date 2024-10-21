@@ -15,9 +15,9 @@
 <body>
     <h1>Second page</h1>
     <?php
-    $name = $_POST["name"];
-    $subject = $_POST["subjectEnroll"];
-    $status = $_POST[""];
+    $name = $_GET["name"];
+    $subject = $_GET["subjectEnroll"];
+    $status = $_GET["status"];
     $error = "";
 
     $valorRadioButton = "";

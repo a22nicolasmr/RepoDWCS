@@ -24,21 +24,21 @@ function test_input($data)
 <body>
     <?php
     $inputUsername = $inputPassword = $cityemployement = $errorUsername = $errorPassword = $errorCity = "";
-    if (isset($_POST["enviar"])) {
-        if (empty($_POST["vUsername"])) {
+    if (isset($_GET["enviar"])) {
+        if (empty($_GET["vUsername"])) {
             $errorUsername = "Username obligatorio";
         } else {
-            $inputUsername = $_POST["vUsername"];
+            $inputUsername = $_GET["vUsername"];
         }
-        if (empty($_POST["vPassword"])) {
+        if (empty($_GET["vPassword"])) {
             $errorPassword = "Password obligatorio";
         } else {
-            $inputPassword = $_POST["vPassword"];
+            $inputPassword = $_GET["vPassword"];
         }
-        if (empty($_POST["vCity"])) {
+        if (empty($_GET["vCity"])) {
             $errorCity = "City obligatorio";
         } else {
-            $cityemployement = $_POST["vCity"];
+            $cityemployement = $_GET["vCity"];
         }
 
         if ($errorUsername = $errorCity = $errorPassword == "") {

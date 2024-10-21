@@ -46,13 +46,13 @@ function test_input($data)
     $precioProducto = $valorSelect = $cantidadeError = $cantidade = "";
 
     //Comprobar si la pagina ya se ha cargado una vez
-    if (isset($_POST["enviar"])) {
-        if (empty($_POST["vCantidade"])) { //si el valor de la cantidad del valor esta vacio
+    if (isset($_GET["enviar"])) {
+        if (empty($_GET["vCantidade"])) { //si el valor de la cantidad del valor esta vacio
             $cantidadeError = "Cantidade requerida";
         } else { //si no esta vacio ambos valores se igualan al campo correspondientes
-            if (is_numeric($_POST["vCantidade"])) { //miramos si vCantidade es numerico sino error
-                $cantidade = $_POST["vCantidade"];
-                $valorSelect = $_POST["opcion"];
+            if (is_numeric($_GET["vCantidade"])) { //miramos si vCantidade es numerico sino error
+                $cantidade = $_GET["vCantidade"];
+                $valorSelect = $_GET["opcion"];
 
                 // Comprobar que la opción seleccionada existe en el array de productos
                 if (isset($productos[$valorSelect])) {

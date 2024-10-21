@@ -31,9 +31,9 @@ function createSelect(array $values, $selectedValue): void
         ];
 
         // Obtener los valores desde la URL
-        $name = $_POST["name"];
-        $subject = $_POST["subjectEnroll"];
-        $status = $_POST["status"];
+        $name = $_GET["name"];
+        $subject = $_GET["subjectEnroll"];
+        $status = $_GET["status"];
         ?>
         <h1>Third page</h1>
         <label for="nameSurnames">Name and surnames:</label>
