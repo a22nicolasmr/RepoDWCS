@@ -23,22 +23,22 @@ function test_input($data)
 
 <body>
     <?php
-    $username = $password = $cityemployement = $errorUsername = $errorPassword = $errorCity = "";
-    if (isset($_GET["enviar"])) {
-        if (empty($_GET["vUsername"])) {
+    $inputUsername = $inputPassword = $cityemployement = $errorUsername = $errorPassword = $errorCity = "";
+    if (isset($_POST["enviar"])) {
+        if (empty($_POST["vUsername"])) {
             $errorUsername = "Username obligatorio";
         } else {
-            $username = $_GET["vUsername"];
+            $inputUsername = $_POST["vUsername"];
         }
-        if (empty($_GET["vPassword"])) {
+        if (empty($_POST["vPassword"])) {
             $errorPassword = "Password obligatorio";
         } else {
-            $password = $_GET["vPassword"];
+            $inputPassword = $_POST["vPassword"];
         }
-        if (empty($_GET["vCity"])) {
+        if (empty($_POST["vCity"])) {
             $errorCity = "City obligatorio";
         } else {
-            $cityemployement = $_GET["vCity"];
+            $cityemployement = $_POST["vCity"];
         }
 
         if ($errorUsername = $errorCity = $errorPassword == "") {
@@ -53,7 +53,7 @@ function test_input($data)
 
     <h1>Novell Services Login</h1>
     <form method="get" action="<?php echo test_input($_SERVER["PHP_SELF"]); ?>">
-        Username: <input type="text" name=<?php echo $username ?> placeholder=""><br><br>
+        Username: <input type="text" name=<?php echo $inputUsername ?> placeholder=""><br><br>
         <span class="error"> <?php echo $errorUsername ?></span> <br>
         PassWord: <input type="text" name="vPassword" placeholder=""><br><br>
         <span class="error"> <?php echo $errorPassword ?></span> <br>

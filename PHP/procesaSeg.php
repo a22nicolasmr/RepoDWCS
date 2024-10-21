@@ -12,8 +12,8 @@
     $name = $email = '';
 
     if ($_SERVER['REQUEST_METHOD'] == 'GET') {
-        $name = test_input($_GET['vNome']);
-        $email = test_input($_GET['vEmail']);
+        $name = test_input($_POST['vNome']);
+        $email = test_input($_POST['vEmail']);
     }
 
     function test_input($data)

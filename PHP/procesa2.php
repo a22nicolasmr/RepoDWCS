@@ -1,7 +1,9 @@
 <html>
+
 <body>
 
-Welcome <?php echo $_GET['vNome']; ?><br>
-Your email address is: <?php echo $_GET['vEmail']; ?>
+    Welcome <?php echo $_POST['vNome']; ?><br>
+    Your email address is: <?php echo $_POST['vEmail']; ?>
 </body>
+
 </html>

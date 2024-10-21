@@ -23,29 +23,29 @@ function test_input($data)
 
 <body>
     <?php
-    $username = $password = $cityemployement = $errorUsername = $errorPassword = $errorCity = $opcionWebServer = $status = $singed = "";
-    if (isset($_GET["enviar"])) {
-        if (empty($_GET["vUsername"])) {
+    $inputUsername = $inputPassword = $cityemployement = $errorUsername = $errorPassword = $errorCity = $opcionWebServer = $status = $singed = "";
+    if (isset($_POST["enviar"])) {
+        if (empty($_POST["vUsername"])) {
             $errorUsername = "Username obligatorio";
         } else {
-            $username = test_input($_GET["vUsername"]);
+            $inputUsername = test_input($_POST["vUsername"]);
         }
 
-        if (empty($_GET["vPassword"])) {
+        if (empty($_POST["vPassword"])) {
             $errorPassword = "Password obligatorio";
         } else {
-            $password = test_input($_GET["vPassword"]);
+            $inputPassword = test_input($_POST["vPassword"]);
         }
 
-        if (empty($_GET["vCity"])) {
+        if (empty($_POST["vCity"])) {
             $errorCity = "City obligatorio";
         } else {
-            $cityemployement = test_input($_GET["vCity"]);
+            $cityemployement = test_input($_POST["vCity"]);
         }
 
-        $opcionWebServer = $_GET["opcionWebServer"];
-        $status = $_GET["status"];
-        $singed = $_GET["singed"];
+        $opcionWebServer = $_POST["opcionWebServer"];
+        $status = $_POST["status"];
+        $singed = $_POST["singed"];
 
         if ($errorUsername === "" && $errorCity === "" && $errorPassword === "") {
             // No hay errores, puedes proceder con el procesamiento de los datos
@@ -57,10 +57,10 @@ function test_input($data)
 
     <h1>Novell Services Login</h1>
     <form method="get" action="<?php echo test_input($_SERVER["PHP_SELF"]) ?>">
-        Username: <input type="text" name="vUsername" value="<?php echo $username ?>"><br>
+        Username: <input type="text" name="vUsername" value="<?php echo $inputUsername ?>"><br>
         <span class="error"> <?php echo $errorUsername ?></span> <br><br>
 
-        PassWord: <input type="password" name="vPassword" value="<?php echo $password ?>"><br>
+        PassWord: <input type="password" name="vPassword" value="<?php echo $inputPassword ?>"><br>
         <span class="error"> <?php echo $errorPassword ?></span> <br><br>
 
         City of Employment: <input type="text" name="vCity" value="<?php echo $cityemployement ?>"><br>

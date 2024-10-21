@@ -19,7 +19,7 @@ function test_input($data)
     $data = htmlspecialchars($data);
     return $data;
 }
-$loginError = $username = $password = "";
+$loginError = $inputUsername = $inputPassword = "";
 
 if (isset(($_POST["submit"]))) {
 
@@ -29,19 +29,19 @@ if (isset(($_POST["submit"]))) {
         if (empty($_POST["inputUsername"])) {
             $loginError = "Incorrect credentials";
         } else {
-            $username = test_input($_POST["inputUsername"]);
+            $inputUsername = test_input($_POST["inputUsername"]);
         }
 
         if (empty($_POST["inputPassword"])) {
             $loginError = "Incorrect credentials";
         } else {
-            $password = test_input($_POST["inputPassword"]);
+            $inputPassword = test_input($_POST["inputPassword"]);
         }
 
-        if (check_user($username, $password)) {
+        if (check_user($inputUsername, $inputPassword)) {
 
-            $_SESSION['username'] = $username;
-            $_SESSION['password'] = $password;
+            $_SESSION['username'] = $inputUsername;
+            $_SESSION['password'] = $inputPassword;
             header("Location: Menu.php");
             exit();
         } else {

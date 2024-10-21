@@ -45,7 +45,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 </head>
 
 <body>
-	<?php if (isset($_GET["redirigido"])) {
+	<?php if (isset($_POST["redirigido"])) {
 		echo "<p>Please introduce login to continue </p>";
 	} ?>
 	<?php if (isset($err) and $err == true) {

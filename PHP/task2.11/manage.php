@@ -15,9 +15,9 @@
 <body>
     <h1>Second page</h1>
     <?php
-    $name = $_GET["name"];
-    $subject = $_GET["subjectEnroll"];
-    $status = $_GET["status"];
+    $name = $_POST["name"];
+    $subject = $_POST["subjectEnroll"];
+    $status = $_POST["status"];
     $error = "";
 
 
@@ -47,9 +47,9 @@
         echo "<span class='error'>$error</span><br>";
     }
 
-    if (isset($_GET["status"])) {
+    if (isset($_POST["status"])) {
         setcookie($cookie_statusName, $cookie_statusValue, time() + (86400 * 30), "/");
-        echo "<br>" . $_GET["status"] . " is the selected option";
+        echo "<br>" . $_POST["status"] . " is the selected option";
         if ($_COOKIE[$cookie_statusName]) {
 
             echo "<br>Cookie '" . $cookie_statusName . "' is set!<br>";

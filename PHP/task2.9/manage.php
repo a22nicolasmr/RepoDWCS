@@ -15,9 +15,9 @@
 <body>
     <h1>Second page</h1>
     <?php
-    $name = $_GET["name"];
-    $subject = $_GET["subjectEnroll"];
-    $status = $_GET[""];
+    $name = $_POST["name"];
+    $subject = $_POST["subjectEnroll"];
+    $status = $_POST[""];
     $error = "";
 
     $valorRadioButton = "";
@@ -32,8 +32,8 @@
         echo "<span class='error'>$error</span><br>";
     }
 
-    if (isset($_GET["status"])) {
-        echo "<br>" . $_GET["status"] . " is the selected option";
+    if (isset($_POST["status"])) {
+        echo "<br>" . $_POST["status"] . " is the selected option";
     }
     ?>
     <br><a href="manage2.php?name=<?php echo $name; ?>&subjectEnroll=<?php echo $subject; ?>&status=<?php echo $status; ?>">Link to manage2</a>

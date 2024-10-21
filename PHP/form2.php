@@ -19,14 +19,14 @@
     }
     $nome = $email = $nameErr = "";
     //if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    if (isset($_GET["enviar"])) {
+    if (isset($_POST["enviar"])) {
         //The field name is required
-        if (empty($_GET["vNome"])) {
+        if (empty($_POST["vNome"])) {
             $nameErr = "Name is required";
         } else {
-            $nome = test_input($_GET["vNome"]);
+            $nome = test_input($_POST["vNome"]);
         }
-        $email = test_input($_GET["vEmail"]);
+        $email = test_input($_POST["vEmail"]);
         if ($nameErr == "") {
             echo "Welcome " . $nome . "<br>";
             echo "Your email address is: " . $email;
