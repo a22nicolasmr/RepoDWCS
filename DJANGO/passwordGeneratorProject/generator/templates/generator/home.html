@@ -1,12 +1,22 @@
-<h1>Hola manito</h1>
+<h1>Primeiro proxecto en Django</h1>
 {% comment %} <h2>Your password is {{password}}</h2> {% endcomment %}
 
-<form action="{%{{}}%}">
-  <select name="lenght">
+<form action="{% url "password" %}">
+  <select name="length">
     <option value="6">6</option>
     <option value="7">7</option>
     <option value="8">8</option>
+    <option value="9">9</option>
+    <option value="10">10</option>
+    <option value="11">11</option>
+    <option value="12" >12</option>
+    <option value="13">13</option>
   </select>
-
-  <input type="submit" value="generate Password"></input>
+  <br>
+  <input type="checkbox" name="uppercase">Uppercase</input><br>
+  <input type="checkbox" name="numbers">Numbers</input><br>
+  <input type="checkbox" name="specialCharacters">Special Characters</input><br>
+  
+  <input type="submit" value="generate Password"></input><br>
+  <a href="{% url 'about' %}">About us</a>
 </form>
