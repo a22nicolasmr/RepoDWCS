@@ -29,3 +29,19 @@ def home(request):
 -cambiamos en views.py  y ponemos lo siguiente:
 def home(request):
  return render(request, 'generator/home.html')
+ 
+------------------------------------------
+PARA CREAR UNA APLICACION DENTRO DE UN PROYECTO.
+docker compose run web python manage.py startapp portfolio 
+
+tenemos que añadir en settings , el link de las paginas nuevas:
+INSTALLED_APPS = [
+    'django.contrib.admin',
+    'django.contrib.auth',
+    'django.contrib.contenttypes',
+    'django.contrib.sessions',
+    'django.contrib.messages',
+    'django.contrib.staticfiles',
+    'blog',
+    'portfolio',
+]
