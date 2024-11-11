@@ -1,0 +1,31 @@
+-crear carpeta
+
+-copiar archivos docker
+
+-docker compose run web django-admin startproject nombreProyectoNueo .
+
+-arrancar docker para ver si funciona
+
+-parar docker
+
+-docker compose run web python manage.py startapp generator (este es el nombre de la nueva aplicación que vamos a hacer NO del proyecto)
+
+-añadir en settings el nombre de la aplicacion
+
+-en url ponemos lo siguiente :
+from taskForm import views
+urlpatterns = [
+    path('', views.home, name="home")
+]
+
+- en views ponemos la siguiente funcion:
+def home(request):
+ return HttpResponse("HOLA")
+
+-dentro de la carpeta del proyecto nuevo, donde tenemos la carpeta migrations , creamos la carpeta templates y dentro de templates otra carpeta con el nombre que queramos
+
+-vamos a settings.py y en TEMPLATES DIRS ponemos 'templates'
+
+-cambiamos en views.py  y ponemos lo siguiente:
+def home(request):
+ return render(request, 'generator/home.html')
