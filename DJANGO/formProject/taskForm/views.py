@@ -1,15 +1,14 @@
 from django.shortcuts import render
-from django.http import HttpResponse
 
 def home(request):
-    return render(request, 'formProject/form.html')
+    return render(request, 'generator/home.html')
 
 def responsePage(request):
     username = request.GET.get('usernameInput')
     password = request.GET.get('passwordInput')
     city = request.GET.get('cityInput')
 
-    admin = request.GET.get('admin')
+    admin = request.GET.get('status')
     engineer = request.GET.get('engineer')
     manager = request.GET.get('manager')
     guest = request.GET.get('guest')
@@ -48,4 +47,4 @@ def responsePage(request):
         'signon': signon
     }
 
-    return render(request, 'formProject/responsePage.html', datos)
+    return render(request, 'generator/resultsPage.html', datos)
