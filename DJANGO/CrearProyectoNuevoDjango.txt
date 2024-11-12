@@ -1,35 +1,43 @@
--crear carpeta
 
--copiar archivos docker
+Explicación:
 
--docker compose run web django-admin startproject nombreProyectoNueo .
+1 Crear carpeta con los 3 archivos docker.
 
--arrancar docker para ver si funciona
+2 Hacer un "docker compose run web django-admin startproject nombreProyectoNuevo ." para generar el proyecto.
 
--parar docker
+3 Arrancar Docker y pararlo.
 
--docker compose run web python manage.py startapp generator (este es el nombre de la nueva aplicación que vamos a hacer NO del proyecto)
+4 Hacer un "docker compose run web python manage.py startapp nombreAplicacionNueva" para generar la aplicación cuyo nombre tiene que ser distinto del proyecto.
 
--añadir en settings el nombre de la aplicacion
+5 Añadir en los settings del proyecto la aplicación nueva.
 
--en url ponemos lo siguiente :
-from taskForm import views
-urlpatterns = [
-    path('', views.home, name="home")
-]
+6 Probar que todo funciona correctamente poniendo en url :
 
-- en views ponemos la siguiente funcion:
-def home(request):
- return HttpResponse("HOLA")
+    from taskForm import views
+    urlpatterns = [
+        path('', views.home, name="home")
+    ] 
 
--dentro de la carpeta del proyecto nuevo, donde tenemos la carpeta migrations , creamos la carpeta templates y dentro de templates otra carpeta con el nombre que queramos
+posteriormente en views:
 
--vamos a settings.py y en TEMPLATES DIRS ponemos 'templates'
+    def home(request):
+    return HttpResponse("HOLA")
 
--cambiamos en views.py  y ponemos lo siguiente:
-def home(request):
- return render(request, 'generator/home.html')
- 
+7 Dentro de la carpeta de la aplicacion nueva, a la altura de la carpeta migrations , hacemos la carpeta templates y dentro de ella , otra carpeta con el nombre que queramos . Aquí pondremos los htmls que vayamos a utilizar
+
+8 En settings.py en TEMPLATES DIRS ponemos 'templates'
+
+9 Cambiar el contenido de views y apuntar al archivo home :
+
+    def home(request):
+    return render(request, 'nombreDeLaCarpetaDeLosHtmls/home.html')
+
+-------------------NOTAS:-------------------
+
+-TODAS las paginas html que pongamos las tenemos que declarar en el archivo urls, por ejemplo:
+    path("resultsPage/", views.resultsPage, name="resultsPage")
+
+-Despues de declararlas en ese archivo tenemos que crear su correspondiente metodo en views , de forma que estara asociado al path del paso anterior
 ------------------------------------------
 PARA CREAR UNA APLICACION DENTRO DE UN PROYECTO.
 docker compose run web python manage.py startapp portfolio 
