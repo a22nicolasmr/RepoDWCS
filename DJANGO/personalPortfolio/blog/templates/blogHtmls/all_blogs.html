@@ -16,7 +16,8 @@
         padding-top: 20px;
       }
 
-      h1 {
+      h1,
+      h2 {
         text-align: center;
         font-size: 2.5rem;
         color: #333;
@@ -52,18 +53,35 @@
         border: 1px solid #ddd;
         background-color: #fff;
       }
+      a {
+        color: white;
+      }
     </style>
   </head>
 
   <body>
     <h1>All Blogs</h1>
+
+    {% comment %} esto de abajo {{ blogs.count|pluralize }} sirve para que ponga
+    una s si hay mas de un blog {% endcomment %}
+    <h2>Se han escrito {{blogs.count}} blog{{ blogs.count|pluralize }}</h2>
+
     <div class="container">
       {% for blog in blogs %}
       <div class="card">
-        <div class="card-header">{{ blog.title }}</div>
+        {% comment %} En la linea de abajo indicamos el detail al que nos
+        queremos dirigir con su respectivo id de blog, ya que sino no
+        funcionaria {% endcomment %}
+        <div class="card-header">
+          <a href="{% url 'blog:detail' blog.id %}">{{ blog.title }}</a>
+        </div>
         <div class="card-body">
-          <p>{{ blog.description }}</p>
-          <p class="date">{{ blog.date }}</p>
+          {% comment %} truncatechars sirve para mostrar un numero limitado de
+          caracteres {% endcomment %}
+          <p>{{ blog.description |truncatechars:100|safe|striptags}}</p>
+          {% comment %} lo que ponemos despues de blog.date es para darle
+          formato a la fecha {% endcomment %}
+          <p class="date">{{ blog.date|date:'M d Y'|upper }}</p>
         </div>
       </div>
       {% endfor %}

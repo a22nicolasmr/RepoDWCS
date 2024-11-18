@@ -9,3 +9,5 @@ class Project(models.Model):
     
 #cuando creamos una nueva tabla aqui , tenemos que migrar el proyecto para indicar que tenemos una nueva tabla
 
+    def __str__(self):
+        return self.title 

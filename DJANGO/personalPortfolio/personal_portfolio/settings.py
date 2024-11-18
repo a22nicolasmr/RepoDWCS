@@ -75,6 +75,7 @@ WSGI_APPLICATION = 'personal_portfolio.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 
+#o noso proxecto conectase a unha base de datos sqlite debido a esta instruccion
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',

@@ -23,6 +23,7 @@ from portfolio import views
 urlpatterns = [
     path('', views.home, name="home"),
     path('admin/', admin.site.urls),
+    #con la instruccion de abajo indicamos que cuando se pone /blog , tiene que ir a la direccion blog/urls
     path('blog/', include('blog.urls')),
 ]
 
