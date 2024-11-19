@@ -83,15 +83,15 @@
   {% extends "portFolioHtmls/base.html" %} {% block content %}
 
   <body>
-    <h1>Portfolio Project Home</h1>
+    <h1>Portfolio de Nicolás</h1>
     {% load static %}
-    <a href="{% static 'portfolio/archivo.pdf' %}">Ficheiro pdf</a><br />
+    <a href="{% static 'portfolio/archivo3.pdf' %}">Currículum</a><br />
     {% comment %} en la linea de abajo hay que poner blog:all_blogs porque hay
     que indicar que va a /blog , que tenemos indicado en view y luego al archivo
     a all_blogs que tenemos puesto como nombre en urls {% endcomment %}
-    <a href="{% url 'blog:all_blogs' %}">Pagina blogs</a>
+    <a href="{% url 'blog:all_blogs' %}">Blogs</a>
     <img
-      src="{% static 'portfolio/imagen.jpg' %}"
+      src="{% static 'portfolio/imagen2.jpg' %}"
       alt="Imagen"
       class="header-img"
     />

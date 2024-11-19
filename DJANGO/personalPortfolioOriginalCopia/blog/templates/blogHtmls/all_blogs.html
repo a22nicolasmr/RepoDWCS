@@ -53,18 +53,22 @@
         border: 1px solid #ddd;
         background-color: #fff;
       }
-      a {
-        color: white;
+      .card-header a {
+        color: white !important;
       }
     </style>
   </head>
-
+  {% extends "blogHtmls/base.html" %}
+  <br />
+  {% block content%}
   <body>
-    <h1>All Blogs</h1>
+    <h1>Blogs de Nicolás</h1>
 
     {% comment %} esto de abajo {{ blogs.count|pluralize }} sirve para que ponga
     una s si hay mas de un blog {% endcomment %}
-    <h2>Se han escrito {{blogs.count}} blog{{ blogs.count|pluralize }}</h2>
+    <h2>
+      Se han escrito {{blogs.count}} blog{{ blogs.count|pluralize }} en total.
+    </h2>
 
     <div class="container">
       {% for blog in blogs %}
@@ -84,7 +88,7 @@
           <p class="date">{{ blog.date|date:'M d Y'|upper }}</p>
         </div>
       </div>
-      {% endfor %}
+      {% endfor %}{% endblock %}
     </div>
   </body>
 </html>
