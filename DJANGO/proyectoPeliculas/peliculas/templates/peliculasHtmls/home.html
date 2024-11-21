@@ -1,3 +1,18 @@
-{% extends "peliculasHtmls/base.html" %} {% block content %}
-<h1>Pagina home</h1>
+{% extends "peliculasHtmls/base.html" %}
+
+{% block content %}
+<h1 class="display-1 d-flex justify-content-center mt-5">Página Home</h1>
+
+{% for pelicula in peliculas %}
+<div class="card">
+    <img class="card-img-top" src="{{ pelicula.imagen }}" alt="Imagen película">
+    <div class="card-body">
+        <h4 class="card-title">{{ pelicula.titulo }}</h4>
+        <p class="card-text">{{ pelicula.descripcion }}</p>
+        <a href="{% url 'peliculas:detalle' pelicula.id %}" class="btn btn-primary">Ver más</a>
+    </div>
+</div>
+{% empty %}
+<p>No hay películas disponibles.</p>
+{% endfor %}
 {% endblock %}

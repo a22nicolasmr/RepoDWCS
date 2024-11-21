@@ -16,7 +16,6 @@ Including another URLconf
 """
 from django.contrib import admin
 from peliculas import views
-from reseñas import views
 from django.urls import path,include
 from peliculas import views
 #importante importar las views, no las detecta automaticamente
@@ -28,7 +27,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', views.home, name="home"),
     path('reseñas/',include('reseñas.urls')),
-    path('', include('peliculas.urls')),
+    
 
 ]
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
