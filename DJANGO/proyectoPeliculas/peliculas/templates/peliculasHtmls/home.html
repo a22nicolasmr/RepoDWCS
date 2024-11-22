@@ -1,18 +1,32 @@
 {% extends "peliculasHtmls/base.html" %}
-
 {% block content %}
-<h1 class="display-1 d-flex justify-content-center mt-5">Página Home</h1>
+{% load static %}
+<!-- Cargar fuentes de Google Fonts -->
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600&family=Open+Sans:wght@400&display=swap"
+    rel="stylesheet">
+
+<div class="card" style="position: relative; width: 100%; height: auto; overflow: hidden;">
+    <img class="card-img-top w-100" src="{% static 'peliculas/peliculas2.png' %}" alt="imagen central de peliculas"
+        style="object-fit: cover; height: 700px;">
+    <div class="card-img-overlay d-flex justify-content-center align-items-center"
+        style="background-color: rgba(0, 0, 0, 0.5);">
+        <h1 class="text-center text-white"
+            style="font-family: 'Montserrat', sans-serif; font-size: 5rem; font-weight: 600;">
+            Página Home
+        </h1>
+    </div>
+</div>
 
 {% for pelicula in peliculas %}
 <div class="card">
-    <img class="card-img-top" src="{{ pelicula.imagen }}" alt="Imagen película">
-    <div class="card-body">
-        <h4 class="card-title">{{ pelicula.titulo }}</h4>
-        <p class="card-text">{{ pelicula.descripcion }}</p>
-        <a href="{% url 'peliculas:detalle' pelicula.id %}" class="btn btn-primary">Ver más</a>
+    <img class="card-img-top" style="" src="{{ pelicula.imagen.url }}" alt="Imagen película" />
+    <div class="card-body" style="font-family: 'Open Sans', sans-serif;">
+        <h4 class="card-title" style="font-weight: 600; font-size: 1.5rem;">{{ pelicula.titulo }}</h4>
+        <p class="card-text" style="font-size: 1rem; line-height: 1.6; color: #555;">{{ pelicula.descripcion }}</p>
+        <a href="{{ pelicula.url }}" class="btn btn-primary">Ver más</a>
     </div>
 </div>
 {% empty %}
-<p>No hay películas disponibles.</p>
+<p style="font-family: 'Open Sans', sans-serif;">No hay películas disponibles.</p>
 {% endfor %}
 {% endblock %}

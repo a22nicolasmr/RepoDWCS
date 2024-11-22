@@ -3,4 +3,5 @@ from .models import Reseñas
 # Create your views here.
 
 def reseñas(request):
-    return render(request,"reseñasHtmls/reseñas.html")
+    reseñas=Reseñas.objects.order_by("-fecha")
+    return render(request,"reseñasHtmls/reseñas.html",{"reseñas":reseñas})

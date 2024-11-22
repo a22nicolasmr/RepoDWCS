@@ -27,6 +27,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', views.home, name="home"),
     path('reseñas/',include('reseñas.urls')),
+    path('peliculas/', include('peliculas.urls')), 
     
 
 ]
