@@ -3,13 +3,14 @@
 {% load static %}
 <!-- Cargar fuentes de Google Fonts -->
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600&family=Open+Sans:wght@400&display=swap"
-    rel="stylesheet">
+    rel="stylesheet" />
 
+<!-- Portada -->
 <div class="card" style="position: relative; width: 100%; height: auto; overflow: hidden;">
     <img class="card-img-top w-100" src="{% static 'peliculas/peliculas2.png' %}" alt="imagen central de peliculas"
-        style="object-fit: cover; height: 700px;">
+        style="object-fit: cover; height: 700px;" />
     <div class="card-img-overlay d-flex justify-content-center align-items-center"
-        style="background-color: rgba(0, 0, 0, 0.5);">
+        style="background-color: rgba(0, 0, 0, 0.6);">
         <h1 class="text-center text-white"
             style="font-family: 'Montserrat', sans-serif; font-size: 5rem; font-weight: 600;">
             Página Home
@@ -17,16 +18,37 @@
     </div>
 </div>
 
-{% for pelicula in peliculas %}
-<div class="card">
-    <img class="card-img-top" style="" src="{{ pelicula.imagen.url }}" alt="Imagen película" />
-    <div class="card-body" style="font-family: 'Open Sans', sans-serif;">
-        <h4 class="card-title" style="font-weight: 600; font-size: 1.5rem;">{{ pelicula.titulo }}</h4>
-        <p class="card-text" style="font-size: 1rem; line-height: 1.6; color: #555;">{{ pelicula.descripcion }}</p>
-        <a href="{{ pelicula.url }}" class="btn btn-primary">Ver más</a>
+<!-- Sección de películas -->
+<div class="container mt-4">
+    <div class="row">
+        {% for pelicula in peliculas %}
+        <div class="col-md-4 mb-4"> <!-- Tres columnas por fila -->
+            <div class="card h-100" style="background-color: #e0e0e0; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);">
+                <!-- Imagen con un tamaño fijo para todas -->
+                <img class="card-img-top" src="{{ pelicula.imagen.url }}" alt="Imagen película"
+                    style="width: 100%; height: 600px; object-fit: cover;">
+                <!-- Ajuste de tamaño fijo para las imágenes -->
+                <div class="card-body" style="font-family: 'Open Sans', sans-serif;">
+                    <h4 class="card-title" style="font-weight: 600; font-size: 2.0rem; text-align: center;">
+                        {{ pelicula.nombre }}
+                    </h4>
+                    <p class="card-text" style="font-size: 1rem; line-height: 1.6; color: #555;">
+                        {{ pelicula.descripcion }}
+                    </p>
+                    <div class="d-flex justify-content-center">
+                        <a href="{{ pelicula.url }}" class="btn"
+                            style="background-color: #8B0000; color: white; border: none; transition: background-color 0.3s ease;">
+                            Ver más
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        {% empty %}
+        <p class="text-center" style="font-family: 'Open Sans', sans-serif;">
+            No hay películas disponibles.
+        </p>
+        {% endfor %}
     </div>
 </div>
-{% empty %}
-<p style="font-family: 'Open Sans', sans-serif;">No hay películas disponibles.</p>
-{% endfor %}
 {% endblock %}
