@@ -17,7 +17,7 @@
     {% for reseña in reseñas %}
     <li class="list-group-item">
       <h3>{{ reseña.titulo }}</h3>
-      <h5>Por: {{ reseña.autor }} | Fecha: {{ reseña.fecha }}</h5>
+      <h5 class="text-muted">Por: {{ reseña.autor }} | Fecha: {{ reseña.fecha|date:"l, d F Y" }}</h5>
       <p>{{ reseña.texto }}</p>
     </li>
     {% empty %}
