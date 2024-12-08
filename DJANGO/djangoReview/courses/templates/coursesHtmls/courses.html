@@ -1,0 +1,10 @@
+{% extends "coursesHtmls/base.html" %}
+{% block content %}
+{% for course in courses %}
+<h1>{{ course.name }}</h1>
+<p>{{ course.longDescription }}</p>
+<img src="{{ course.foto.url }}" alt="Course image" />
+<a href="{% url 'courses:detail' name=course.name %}">Aditional info</a>
+{% endfor %}
+
+{% endblock %}

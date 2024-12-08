@@ -1,18 +1,4 @@
-<!DOCTYPE html>
-<html lang="es">
-
-<head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Courses home</title>
-    {% load static %}
-</head>
-
-
-<body>
-
-    <h1>Home.html courses</h1>
-    <img src="{% static 'courses/moltres.jpg' %}" alt="Moltres">
-</body>
-
-</html>
+{% extends "coursesHtmls/base.html" %} {% load static %} {% block content %}
+<h1>Home.html courses</h1>
+<img src="{% static 'courses/moltres.jpg' %}" alt="Moltres" />
+{%endblock %}

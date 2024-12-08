@@ -1,0 +1,9 @@
+{% extends "coursesHtmls/base.html" %}
+{% block content %}
+{% for register in registration %}
+<h1>{{ register.name }}</h1>
+<p>{{ register.surname }}</p>
+<p>{{ register.age }}</p>
+{% endfor %}
+
+{% endblock %}
