@@ -1,0 +1,20 @@
+{% extends "coursesHtmls/base.html" %}
+{% load static %}
+{% block content %}
+<h1>Home.html</h1>
+<img src="{% static '/imagen.jpg' %}" alt="Imagen">
+
+<form action="{% url "registration:response" %}" method="get">
+    Name:<input type="text" name="inputName"><br>
+    Surname: <input type="text" name="inputSurname"><br>
+    A<input type="checkbox" value="a" name="statusA"><br>
+    B<input type="checkbox" value="b" name="statusB"><br>
+    C<input type="checkbox" value="c" name="statusC"><br>
+
+    Beach:<input type="radio" value="Beach" name="place"><br>
+    Mountain:<input type="radio" value="Mountain" name="place"><br>
+    House:<input type="radio" value="House" name="place"><br>
+
+    <input type="submit" value="Submit">
+</form>
+{% endblock %}

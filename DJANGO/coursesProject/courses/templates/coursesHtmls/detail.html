@@ -1,0 +1,9 @@
+{% extends "coursesHtmls/base.html" %}
+{% load static %}
+{% block content %}
+
+<h1>{{course.name}}</h1>
+<p>{{course.longDescription}}</p>
+<img src="{{course.photo.url}}" alt="course">
+
+{% endblock %}

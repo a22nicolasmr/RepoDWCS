@@ -1,0 +1,11 @@
+{% extends "coursesHtmls/base.html" %}
+{% load static %}
+{% block content %}
+
+{% for register in registrations%}
+<h1>{{register.name}}</h1>
+<h2>{{register.surname}}</h2>
+<h2>{{register.age}}</h2>
+<p>{{register.date|date:'M d Y'|upper}}</p>
+{% endfor %}
+{% endblock %}
