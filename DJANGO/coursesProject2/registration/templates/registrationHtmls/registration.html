@@ -1,0 +1,10 @@
+{% extends "coursesHtmls/base.html" %}
+{% block content %}
+<form action="{% url 'registration:data' %}" method="get">
+    Name: <input type="text" name="nameInput"><br>
+    Surname: <input type="text" name="surNameInput"><br>
+    Age: <input type="text" name="ageInput"><br>
+    Date: <input type="text" name="dateInput"><br>
+    <input type="submit" value="Submit">
+</form> 
+{% endblock  %}
