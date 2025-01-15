@@ -10,3 +10,4 @@ class Book(models.Model):
     def __str__(self):
         return f"Title= {self.title} rating= {self.rating}"
 
+ 
