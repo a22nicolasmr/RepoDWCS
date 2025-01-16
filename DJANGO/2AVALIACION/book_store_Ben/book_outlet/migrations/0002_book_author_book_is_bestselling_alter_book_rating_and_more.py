@@ -26,4 +26,9 @@ class Migration(migrations.Migration):
             name='rating',
             field=models.IntegerField(validators=[django.core.validators.MinValueValidator(1), django.core.validators.MaxValueValidator(5)]),
         ),
+        migrations.AlterField(
+            model_name='book',
+            name='title',
+            field=models.CharField(max_length=50),
+        ),
     ]
