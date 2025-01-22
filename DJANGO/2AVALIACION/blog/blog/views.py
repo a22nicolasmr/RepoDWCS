@@ -12,4 +12,4 @@ def detail(request, slug):
 
 def all_posts(request):
     posts=Post.objects.all()
-    return render(request,'blogHtmls/all_blogs.html',{"posts":posts})
+    return render(request,'blogHtmls/all_posts.html',{"posts":posts})
