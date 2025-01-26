@@ -1,0 +1,17 @@
+{% extends "book_outlet/base.html" %}
+
+{% block title %}
+All blocks
+{% endblock %}
+
+{% block content %}
+<ul>
+    {% for book in books %}
+           {% comment %} book.get_absolute_url es una manera de acortar lo de poner {% url "" %}  {% endcomment %}
+        <li><a href="{{ book.get_absolute_url }}">{{book.title}} (Rating:{{book.rating}})</li>
+    {% endfor %}
+</ul>
+<hr>
+<p>Total number of books {{ total_number_of_books }}</p>
+<p>Average rating {{ avg.rating__min }}</p>
+{% endblock %}
