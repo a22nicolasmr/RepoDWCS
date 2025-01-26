@@ -11,7 +11,7 @@ def data(request):
  date=request.GET.get('dateInput')
  
  date = datetime.strptime(date, "%Y-%m-%d").date()
- 
+
  data={
     'name':name,
     'surname':surname,
@@ -23,4 +23,3 @@ def data(request):
 def registration(request):
   registration=Registration.objects.all()
   return render(request,'registrationHtmls/registration.html',{'registration':registration})
- 
