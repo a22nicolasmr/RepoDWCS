@@ -9,9 +9,20 @@ def review(request):
         form=ReviewForm(request.POST)
         
         if form.is_valid():
-            print(form.cleaned_data)
-    
-            return HttpResponseRedirect("/thank-you")
+            # Aquí se procesan los datos del formulario
+            user_name = form.cleaned_data['user_name']
+            password = form.cleaned_data['password']
+            city_employment = form.cleaned_data['city_employment']
+            select = form.cleaned_data['select']
+            
+            # Pasar los datos a la nueva página
+            context = {
+                'user_name': user_name,
+                'password': password,
+                'city_employment': city_employment,
+                'select': select,
+            }
+            return render(request, 'reviewsHtmls/review_results.html', context)
         
     else: 
         form=ReviewForm()
@@ -22,5 +33,5 @@ def review(request):
         "form":form
     })
 
-def thank_you(request):
-    return render(request,"reviewsHtmls/thank_you.html")
+def review_results(request):
+    return render(request, "reviewsHtmls/review_results.html")
