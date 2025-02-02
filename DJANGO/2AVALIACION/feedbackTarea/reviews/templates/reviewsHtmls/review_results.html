@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Datos del formulario</title>
+  </head>
+
+  <body>
+    <h1>Datos enviados:</h1>
+    <p><strong>Nombre:</strong> {{ user_name }}</p>
+    <p><strong>Contraseña:</strong> {{ password }}</p>
+    <p><strong>Ciudad de empleo:</strong> {{ city_employment }}</p>
+    <p><strong>Opción seleccionada:</strong> {{ select }}</p>
+
+    <!-- Mostrar múltiples opciones seleccionadas (Checkboxes) -->
+    <p><strong>Loggeado en:</strong></p>
+    <ul>
+      {% for element in check %}
+      <li>{{ element }}</li>
+      {% empty %}
+      <li>No seleccionaste ninguna opción.</li>
+      {% endfor %}
+    </ul>
+
+    <!-- Mostrar una sola opción seleccionada (Radio button) -->
+    <p><strong>Rol seleccionado:</strong> {{ radio }}</p>
+
+    <a href="{% url 'review' %}">Volver al formulario</a>
+  </body>
+</html>

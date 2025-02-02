@@ -12,7 +12,10 @@
     <form method="post" action="">
       <!-- este token es por seguridad y solo es necesario para que no nos roben la
       informacion a la hora de usar el metodo POST  -->
-      {% csrf_token %} {% for field in form %}
+
+      {% csrf_token %}
+      <h1>Novell Services Login</h1>
+      {% for field in form %}
       <div class="form-control {% if field.errors %}errors{% endif %}">
         {{ field.label_tag }} {{ field }} {{ field.errors }}
       </div>

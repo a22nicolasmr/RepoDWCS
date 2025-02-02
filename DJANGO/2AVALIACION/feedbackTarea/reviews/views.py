@@ -14,6 +14,8 @@ def review(request):
             password = form.cleaned_data['password']
             city_employment = form.cleaned_data['city_employment']
             select = form.cleaned_data['select']
+            radio=form.cleaned_data['radio']
+            check=form.cleaned_data['check']
             
             # Pasar los datos a la nueva página
             context = {
@@ -21,6 +23,8 @@ def review(request):
                 'password': password,
                 'city_employment': city_employment,
                 'select': select,
+                'radio':radio,
+                'check':check
             }
             return render(request, 'reviewsHtmls/review_results.html', context)
         
@@ -32,6 +36,3 @@ def review(request):
     return render(request,"reviewsHtmls/review.html",{
         "form":form
     })
-
-def review_results(request):
-    return render(request, "reviewsHtmls/review_results.html")
