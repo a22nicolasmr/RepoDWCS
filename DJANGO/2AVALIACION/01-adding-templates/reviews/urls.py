@@ -9,5 +9,5 @@ urlpatterns = [
      path("reviews/<int:pk>/", views.SingleReviewView.as_view(),name="review"),
      path("student", views.StudentFormView.as_view()),
      
-     path("all_students", views.StudentFormView.as_view()),
+     path("all_students", views.AllStudentsView.as_view()),
 ]

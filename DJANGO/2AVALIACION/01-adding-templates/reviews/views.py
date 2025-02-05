@@ -82,7 +82,7 @@ class AllStudentsView(ListView):
     model=Student
     context_object_name= "all_students" 
     
-class StudentFormView(ListView):
+class StudentFormView(FormView):
     template_name="reviews/student.html"
     model=Student
     form_class=StudentForm
