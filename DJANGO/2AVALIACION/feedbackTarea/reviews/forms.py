@@ -12,7 +12,8 @@ class ReviewForm(forms.Form):
         "max_length":"Please enter a smaller name"
     })
     
-    password=forms.CharField(label="Pasword:",error_messages={
+    password=forms.CharField(label="Pasword:",
+        widget=forms.PasswordInput(attrs={"placeholder":"Enter password"}),error_messages={
         "required":"You must fill your password"
     })
     

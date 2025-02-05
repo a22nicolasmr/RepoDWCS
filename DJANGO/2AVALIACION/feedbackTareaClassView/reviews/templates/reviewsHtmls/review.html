@@ -1,0 +1,27 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="{% static "reviews/style.css" %}">
+  </head>
+
+  <body>
+    <form method="post" action="">
+      <!-- este token es por seguridad y solo es necesario para que no nos roben la
+      informacion a la hora de usar el metodo POST  -->
+
+      {% csrf_token %}
+      <h1>Novell Services Login</h1>
+      {% for field in form %}
+      <div class="form-control {% if field.errors %}errors{% endif %}">
+        {{ field.label_tag }} {{ field }} {{ field.errors }}
+      </div>
+      {% endfor %}
+
+      <button type="submit">Send</button>
+    </form>
+  </body>
+</html>

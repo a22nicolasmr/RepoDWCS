@@ -10,7 +10,7 @@ class Review(models.Model):
     web_server=models.CharField(max_length=100,default="")
     role=models.CharField(max_length=100,default="")
     sign=models.CharField(max_length=100,default="")
-    
+
     def __str__(self):
         return f'{self.user_name} - {self.city} - {self.web_server} - {self.role} - {self.sign}'
 

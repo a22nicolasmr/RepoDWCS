@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Datos del formulario</title>
+  </head>
+
+  <body>
+    <h1>Datos enviados:</h1>
+    <p><strong>Nombre:</strong> {{ form.cleaned_data.user_name }}</p>
+    <p><strong>Contraseña:</strong> {{ form.cleaned_data.password }}</p>
+    <p><strong>Ciudad de empleo:</strong> {{ form.cleaned_data.city }}</p>
+    <p>
+      <strong>Opción seleccionada:</strong> {{ form.cleaned_data.web_server }}
+    </p>
+
+    <p><strong>Loggeado en:</strong></p>
+    <ul>
+      {% for element in form.cleaned_data.sign %}
+      <li>{{ element }}</li>
+      {% empty %}
+      <li>No seleccionaste ninguna opción.</li>
+      {% endfor %}
+    </ul>
+
+    <p><strong>Rol seleccionado:</strong> {{ form.cleaned_data.role }}</p>
+
+    <a href="{% url 'review' %}">Volver al formulario</a>
+  </body>
+</html>
