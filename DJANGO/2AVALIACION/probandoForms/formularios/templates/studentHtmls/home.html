@@ -1,0 +1,16 @@
+{% extends "studentHtmls/base.html" %}
+{% block content %}
+<h1>Añadir estudiante</h1>
+<form method="post">
+    {% csrf_token %}
+    {% for camps in form %}
+    <div {% if camps.errors %}{% endif %}>
+        {{camps.label}}
+        {{camps}}
+        {{camps.errors}}
+    </div>
+    {% endfor %}
+    <input type="submit" value="Submit">
+</form>
+
+{% endblock %}
