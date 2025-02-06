@@ -34,3 +34,6 @@ class StudentForm(forms.ModelForm):
         model = Student
         fields = "__all__"
 
+class DeleteStudentForm(forms.Form):
+   name = forms.CharField(max_length=100, label="Nombre del estudiante a eliminar")
+      

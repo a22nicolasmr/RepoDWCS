@@ -1,11 +1,12 @@
 from reviews.models import Review,Student
-from django.shortcuts import render
+from django.shortcuts import render,redirect
+from django.urls import reverse_lazy
 from django.views import View
 from django.views.generic.base import TemplateView
 from django.views.generic import ListView,DetailView
-from django.views.generic.edit import FormView,CreateView
+from django.views.generic.edit import FormView,CreateView,DeleteView,UpdateView
 
-from .forms import ReviewForm,StudentForm
+from .forms import ReviewForm,StudentForm,DeleteStudentForm
 
 # Create your views here.
 
@@ -93,3 +94,9 @@ class StudentFormView(FormView):
     def form_valid(self, form):
         form.save()
         return super().form_valid(form)
+    
+class DeleteStudentView(DeleteView):
+    model = Student
+    template_name = 'reviews/delete_student.html'
+    form_class = DeleteStudentForm
+    success_url = reverse_lazy('all_students')  # Redirigir a la página de 
