@@ -1,0 +1,11 @@
+{% extends "blogHtmls/base.html" %}
+{% block content %}
+{% load static %}
+<img src="{% static 'blog/adrian.png' %}" alt="Lickitung" style="width: 250px; height: auto; margin-top: 20px;">
+<a href="{% url "blog:all_posts" %}">ALL BLOGS</a>
+{% for post in posts %}
+<div class="post-container">
+    {% include "blogHtmls/includes/post.html" %}
+</div>
+{% endfor %}
+{% endblock %}

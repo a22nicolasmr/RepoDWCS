@@ -1,0 +1,9 @@
+{% extends "blogHtmls/base.html" %}
+{% block content %}
+{% load static %}
+{% for post in posts %}
+<div class="post-container">
+    {% include "blogHtmls/includes/post.html" %}
+</div>
+{% endfor %}
+{% endblock %}
