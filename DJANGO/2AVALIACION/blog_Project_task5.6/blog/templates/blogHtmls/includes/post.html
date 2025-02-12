@@ -1,6 +1,6 @@
 {% load static %}
 <h3>{{ post.title }}</h3>
-<img src="{% static "blog/images/"|add:post.image_name %}" alt="imagen">
+<img src="{{ post.image_name.url }}" alt="imagen">
 <p>{{ post.excerpt }}</p>
 <p>{{ post.image_name }}</p>
 <p>{{ post.date|date:'F jS Y' }}</p>
