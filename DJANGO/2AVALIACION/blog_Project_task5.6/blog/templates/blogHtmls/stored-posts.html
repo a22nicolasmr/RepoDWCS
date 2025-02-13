@@ -1,0 +1,18 @@
+{% extends "blogHtmls/base.html" %}
+{% load static %}
+
+{% block content %}
+
+<section id="stored-post">
+    {% if not has_posts %}
+        <p>You dont have posts</p>
+    {% endif %}
+    <ul>
+        {% for post in posts %}
+            {% include "blogHtmls/includes/post.html" %}
+        {% endfor %}
+    </ul>
+</section>
+
+
+{% endblock %}

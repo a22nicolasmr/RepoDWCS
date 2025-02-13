@@ -7,4 +7,5 @@ urlpatterns = [
     path('', views.HomeView.as_view(), name='home'),
     path('all-posts/', views.AllPosts.as_view(), name="all_posts"),
     path('post/<slug:slug>/', views.SingleDetailView.as_view(), name='detail'),
+    path('read-later/', views.ReadLaterView.as_view(), name="read_later"),
 ]

@@ -20,6 +20,14 @@ class HomeView(ListView):
     #     return render(request,'blogHtmls/index.html', {'posts':posts})
 
 class SingleDetailView(View):
+    def is_stored_post(self,request,post_id):
+        stored_posts=request.session.get("stored_posts")
+        if stored_posts is None:
+            is_save_for_later=False
+        else:
+            is_save_for_later=post_id in stored_posts
+        return is_save_for_later
+    
     template_name="blogHtmls/detail.html"
     model=Post
     
@@ -29,7 +37,8 @@ class SingleDetailView(View):
             "post":post,
             "post_tags":post.tags.all(),
             "comment_form":CommentForm(),
-            "comments":post.comments.all().order_by("id")
+            "comments":post.comments.all().order_by("id"),
+            "saved_for_later":self.is_stored_post(request,post.id)
         }
         return render(request,"blogHtmls/detail.html",context)
     
@@ -75,3 +84,32 @@ class AllPosts(ListView):
     # def all_posts(request):
     #     posts=Post.objects.all()
     #     return render(request,'blogHtmls/all_posts.html',{"posts":posts})
+    
+class ReadLaterView(View):
+    def get(self,request):
+        stored_posts=request.session.get("stored_posts")
+        context={}
+        if stored_posts is None or len(stored_posts)==0:
+            context["posts"]=[]
+            context["has_posts"]=False
+        else:
+            posts=Post.objects.filter(id__in=stored_posts)
+            context["posts"]=[]
+            context["has_posts"]=True
+        
+        return render(request, "blogHtmls/stored-posts.html",context)
+ 
+    def post(self,request):
+        stored_posts=request.session.get("stored_posts")
+        if stored_posts is None:
+            stored_posts=[]
+            
+        post_id= int(request.POST["post_id"])
+        
+        if post_id not in stored_posts:
+            stored_posts.append(post_id)
+        else:
+            stored_posts.remove(post_id)
+            
+        request.session["stored_posts"]=stored_posts
+        return HttpResponseRedirect("/stored-posts")
