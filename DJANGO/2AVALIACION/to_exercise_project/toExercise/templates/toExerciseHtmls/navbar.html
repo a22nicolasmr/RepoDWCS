@@ -1,20 +1,23 @@
 {% load static %}
 <!DOCTYPE html>
 <html lang="es">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Navbar</title>
-</head>
+    <link rel="stylesheet" href="{% static "toExercise/app.css" %}">
+  </head>
 
-<body>
-    <nav>
-        <a href="{% url "home" %}">Add Exercise</a>
-        <img src="{% static 'toExercise/icon.png' %}" alt="Icon">
+  <body>
+    <nav class="navbar">
+      <div class="icon">
+        <a href="{%url 'home' %}"><img src="{% static 'toExercise/icon.png' %}" alt="Icon" /></a>
+      </div>
+      <a href="{% url 'add_exercise' %}">Add Exercise</a>
     </nav>
 
-    {% block content %}{% endblock  %}
-</body>
-
+    <div class="content">
+      {% block content %}{% endblock %}
+    </div>
+  </body>
 </html>

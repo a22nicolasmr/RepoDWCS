@@ -1,0 +1,15 @@
+{% extends "toExerciseHtmls/navbar.html" %}
+{% load static %}
+
+{% block content %}
+<h1>Exercise {{ exercise.title }}</h1>
+
+<p> Category:{{exercise.category}}</p>
+<p> Repetitions:{{exercise.repetitions}}</p>
+<p> Weight:{{exercise.weight}}</p>
+<p> Date:{{exercise.date}}</p>
+
+<input type="button" value="Update exercise">
+<input type="button" value="Delete exercise">
+<input type="button" value="Favorite">
+{% endblock %}

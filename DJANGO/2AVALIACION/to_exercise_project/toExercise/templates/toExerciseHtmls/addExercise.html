@@ -1,0 +1,23 @@
+{% extends "toExerciseHtmls/navbar.html" %}
+{% load static %}
+
+{% block content %}
+<link rel="stylesheet" href="{% static 'toExercise/app.css' %}">
+
+<div class="form-container">
+    <h1>Add exercise</h1>
+
+    <form action="/" method="post">
+        {% csrf_token %}
+        
+        <div class="input-group">{{ form.title }}</div>
+        <div class="input-group">{{ form.category }}</div>
+        <div class="input-group">{{ form.repetitions }}</div>
+        <div class="input-group">{{ form.weight }}</div>
+
+        <button type="submit" class="btn-black">Add exercise</button><br>
+        <button type="button" class="btn-red">Cancel</button>
+    </form>
+</div>
+
+{% endblock %}

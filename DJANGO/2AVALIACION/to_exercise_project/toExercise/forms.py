@@ -1,8 +1,8 @@
-from django.db import models
+from django import forms
 
 from .models import Exercise
 
-class AddExerciseForm(models.Model):
+class AddExerciseForm(forms.ModelForm):
     class Meta:
         model=Exercise
         
