@@ -38,17 +38,22 @@ class DeleteExercise(DeleteView):
     success_url=reverse_lazy('home')
     
 class Favorites(ListView):
-    template_name="toExerciseHtmls/favorites.html"
-    model=Exercise
-    context_object_name="exercises"
-    
+    template_name = "toExerciseHtmls/favorites.html"
+    model = Exercise
+    context_object_name = "exercises"
+
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        favorites=self.request.session.get("favorites",[])
-        context["favorites"] = favorites
+        favorite_ids = self.request.session.get("favorites", []) 
+        context["favorites"] = Exercise.objects.filter(id__in=favorite_ids) 
         return context
+
+
+    def get_queryset(self):
+        exercises=Exercise.objects.order_by("-date")
+        return exercises
     
-    def add_favorite(request,pk):
+def add_favorite(request,pk):
         favorites=request.session.get("favorites",[])   
         
         if pk not in favorites:
@@ -59,7 +64,3 @@ class Favorites(ListView):
         request.session["favorites"]=favorites
         
         return redirect("favorites")
-
-    def get_queryset(self):
-        exercises=Exercise.objects.order_by("-date")
-        return exercises

@@ -96,8 +96,8 @@
 
         <a href={% url "delete-exercise" exercise.id %}><button class="btn delete-btn">Delete Exercise</button></a>
 
-        <p style="display: none;">{{ exercise.id}}</p>
-        <a href={% url "favorites" %}><button class="btn favorite-btn">Favorite</button> </a>
+        
+        <a href={% url 'add_favorite' exercise.id %}><button class="btn favorite-btn">Favorite</button> </a>
     </div>
 </div>
 

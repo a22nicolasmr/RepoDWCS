@@ -7,5 +7,7 @@ urlpatterns = [
     path("add_exercise",views.AddExercise.as_view(),name="add_exercise"),
     path('update-exercise/<int:pk>/', views.UpdateExercise.as_view(), name='update-exercise'),
     path('delete-exercise/<int:pk>/', views.DeleteExercise.as_view(), name='delete-exercise'),
-    path("favorites",views.Favorites.add_favorite,name="favorites"),
+    path("favorites",views.Favorites.as_view(),name="favorites"),
+    path("add_favorite/<int:pk>/", views.add_favorite, name="add_favorite"),  
 ]
+
