@@ -1,0 +1,23 @@
+{% extends "toExerciseHtmls/navbar.html" %}
+{% load static %}
+
+{% block content %}
+<h1>Favorites list</h1>
+    
+    <div class="exercise-container">
+    {% for exercise in favorites %}
+    {% if favorite.id in favorites %}
+        <a href="{% url 'detail' exercise.id %}" class="exercise-card">
+            <p><strong>Id:</strong> {{ exercise.id }}</p>
+            <p><strong>Nombre:</strong> {{ exercise.title }}</p>
+            <p><strong>Repeticiones:</strong> {{ exercise.repetitions }}</p>
+            <p><strong>Peso:</strong> {{ exercise.weight }}</p>
+            <p><strong>Fecha:</strong> {{ exercise.date }}</p>
+            <p><strong>Categoría:</strong> {{ exercise.category }}</p>
+        </a>
+        {% endif %}
+    {% endfor %}
+</div>
+
+
+{% endblock %}

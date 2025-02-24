@@ -27,3 +27,6 @@ class AddExerciseForm(forms.ModelForm):
             },
             
         }
+        
+
+    

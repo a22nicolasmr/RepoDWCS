@@ -2,14 +2,103 @@
 {% load static %}
 
 {% block content %}
-<h1>Exercise {{ exercise.title }}</h1>
 
-<p> Category:{{exercise.category}}</p>
-<p> Repetitions:{{exercise.repetitions}}</p>
-<p> Weight:{{exercise.weight}}</p>
-<p> Date:{{exercise.date}}</p>
+<style>
+    .exercise-detail-container {
+        background-color: #fff;
+        border-radius: 12px;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        padding: 30px;
+        max-width: 500px;
+        margin: 50px auto;
+        text-align: center;
+    }
 
-<input type="button" value="Update exercise">
-<input type="button" value="Delete exercise">
-<input type="button" value="Favorite">
+    .exercise-title {
+        font-size: 28px;
+        font-weight: bold;
+        color: #222;
+        margin-bottom: 15px;
+    }
+
+    .exercise-info p {
+        font-size: 18px;
+        color: #555;
+        margin: 8px 0;
+    }
+
+    .info-box {
+        display: inline-block;
+        background: #eee;
+        padding: 8px 15px;
+        border-radius: 8px;
+        font-weight: bold;
+    }
+
+    .button-container {
+        margin-top: 25px;
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+        align-items: center;
+    }
+
+    .btn {
+        width: 220px;
+        padding: 14px;
+        border-radius: 8px;
+        font-size: 16px;
+        font-weight: bold;
+        cursor: pointer;
+        border: none;
+        transition: 0.3s ease-in-out;
+    }
+
+    .update-btn {
+        background-color: #000;
+        color: white;
+    }
+
+    .update-btn:hover {
+        background-color: #333;
+    }
+
+    .delete-btn {
+        background-color: red;
+        color: white;
+    }
+
+    .delete-btn:hover {
+        background-color: darkred;
+    }
+
+    .favorite-btn {
+        background-color: gold;
+        color: black;
+    }
+
+    .favorite-btn:hover {
+        background-color: #d4af37;
+    }
+</style>
+<div class="exercise-detail-container">
+    <h1 class="exercise-title">Exercise: {{ exercise.title }}</h1>
+
+    <div class="exercise-info">
+        <p>Category: <span class="info-box">{{ exercise.category }}</span></p>
+        <p>Repetitions: <span class="info-box">{{ exercise.repetitions }}</span></p>
+        <p>Weight: <span class="info-box">{{ exercise.weight }} kg</span></p>
+        <p>Date: <span class="info-box">{{ exercise.date }}</span></p>
+    </div>
+
+    <div class="button-container">
+        <a href={% url "update-exercise" exercise.id %}><button class="btn update-btn">Update Exercise </button></a>
+
+        <a href={% url "delete-exercise" exercise.id %}><button class="btn delete-btn">Delete Exercise</button></a>
+
+        <p style="display: none;">{{ exercise.id}}</p>
+        <a href={% url "favorites" %}><button class="btn favorite-btn">Favorite</button> </a>
+    </div>
+</div>
+
 {% endblock %}
