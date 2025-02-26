@@ -13,6 +13,7 @@ class Exercise(models.Model):
     weight=models.IntegerField()
     date=models.DateField(auto_now_add=True)
     category=models.ForeignKey(Category,on_delete=models.CASCADE)
+    image=models.ImageField(upload_to="toExercise/images",null=True,unique=True)
 
     def __str__(self):
         return f"Title={self.title}, Repetitions={self.repetitions}, Weight={self.weight}, Date={self.date} , Category={self.category}"

@@ -6,12 +6,13 @@ class AddExerciseForm(forms.ModelForm):
     class Meta:
         model=Exercise
         
-        fields=["title","repetitions","weight","category"]
+        fields=["title","repetitions","weight","category","image"]
         labels={
             "title":"Exercise title",
             "repetitions":"Exercise repetitions",
             "weight":"Weight",
-            "category":"Category"
+            "category":"Category",
+            "image":"Image",
         }
         
         error_messages={

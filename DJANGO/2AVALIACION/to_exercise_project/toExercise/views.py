@@ -26,11 +26,16 @@ class AddExercise(CreateView):
     # sin poner reverse_lazy no funciona
     success_url=reverse_lazy('home')
     
+    
 class UpdateExercise(UpdateView):
     model=Exercise
     form_class=AddExerciseForm
     template_name="toExerciseHtmls/updateExercise.html"
     success_url=reverse_lazy('home')
+    
+    def form_valid(self, form):
+        form.instance.image = self.request.FILES.get("image", form.instance.image)
+        return super().form_valid(form)
     
 class DeleteExercise(DeleteView):
     model=Exercise

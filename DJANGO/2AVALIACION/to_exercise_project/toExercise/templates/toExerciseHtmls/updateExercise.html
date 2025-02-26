@@ -76,13 +76,14 @@ h1 {
 <div class="form-container">
     <h1>Update exercise</h1>
 
-    <form method="post">
+    <form method="post" enctype="multipart/form-data">
         {% csrf_token %}
 
         <div class="input-group">{{ form.title }}</div>
         <div class="input-group">{{ form.category }}</div>
         <div class="input-group">{{ form.repetitions }}</div>
-        <div class="input-group">{{ form.weight }}</div>
+        <div class="input-group">{{ form.weight }}</div>        
+        <div class="input-group">{{ form.image }}</div>
 
         <button type="submit" class="btn-black">Update exercise</button><br />
         <a href={% url "home" %}><button type="button" class="btn-red">Cancel</button></a>
