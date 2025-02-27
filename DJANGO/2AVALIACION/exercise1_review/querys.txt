@@ -1,0 +1,32 @@
+docker compose run --rm web python manage.py shell
+>>> from app.models import Student
+>>> from app.models import Degree
+
+1.Get the students older than 20 years old.
+
+>>> Student.objects.filter(age__gt=2000) puse edad aleatoria por mal formulamiento de enunciado
+
+2.Get the students older than 25 and with a finished degree
+
+>>> Student.objects.filter(age__gt=1999,finished_degree=True)
+
+
+3.Get the average age of the students
+
+>>> from django.db.models import Avg
+>>> students=Student.objects.all()
+>>> avg_age=students.aggregate(Avg("age"))
+>>> avg_age
+
+4.Get the number of students with a degree.
+
+>>> Student.objects.filter(finished_degree=True).count()
+
+
+5.From a Degree object called degree get the name and surname of all the students that have finished
+that degree.
+
+>>> degree=Degree.objects.get(name="Degree2")
+Importante hacerlo con el get porque si no devuelve un querySet y no se puede hacer
+
+>>> student=Student.objects.filter(degree=degree,finished_degree=True)

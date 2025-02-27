@@ -1,7 +1,7 @@
 from django.db import models
 from django.core.validators import MinValueValidator, MaxValueValidator
 from django.utils.text import slugify
-from django. Urls import reverse
+from django.urls import reverse
 
 # Create your models here.
 
@@ -10,6 +10,9 @@ class Degree(models.Model):
     description=models.TextField(max_length=100)
     number_years=models.IntegerField(validators=[MinValueValidator(0), MaxValueValidator(4)])
 
+    def __str__(self):
+        return self.name
+    
 class Student(models.Model):
     name=models.CharField(max_length=100)
     surname=models.CharField(max_length=100)
@@ -24,5 +27,8 @@ class Student(models.Model):
         return reverse("student_detail", args=[self.slug])
     
     def save(self, *args, **kwargs):
-        self.slug = slugify(self.title)
+        self.slug = slugify(self.name,self.surname)
         super().save(*args, **kwargs)
+        
+    def __str__(self):
+        return f"Name: {self.name}, Surname: {self.surname}, Degree: {self.degree}"
