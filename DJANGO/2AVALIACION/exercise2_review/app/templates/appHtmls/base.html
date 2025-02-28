@@ -1,0 +1,26 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+</head>
+<style>
+    img {
+        width: 20vh;
+        height: 20vh;
+    }
+</style>
+<nav>
+    <img src="{% static 'app/img.png' %}" alt="Icon" /><br>
+    <a href="/">Home</a>
+    <a href="/">Add product</a>
+</nav>
+
+<body>
+
+    {% block content %} {% endblock %}
+</body>
+
+</html>
