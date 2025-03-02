@@ -7,18 +7,22 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 </head>
 <style>
-    img {
-        width: 20vh;
+img {
+        width: 30vh;
         height: 20vh;
     }
 </style>
 <nav>
     <img src="{% static 'app/img.png' %}" alt="Icon" /><br>
-    <a href="/">Home</a>
-    <a href="/">Add product</a>
+    <a href="{% url 'home' %}">Home</a>
+    <a href="{% url 'add-product' %}">Add product</a>
 </nav>
 
 <body>
+<form action="{% url 'search' %}" method="GET">
+    <input type="text" name="q" placeholder="Buscar productos...">
+    <button type="submit">Buscar</button>
+</form>
 
     {% block content %} {% endblock %}
 </body>

@@ -1,0 +1,18 @@
+{% extends "appHtmls/base.html" %}
+{% load static %}
+{% block content %}
+<style>
+    div {
+        border: black solid 1px;
+    }
+</style>
+<div>
+    <form method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        <p>Are you sure to delete this item?</p>
+        <button type="submit">Send</button>
+        <a href="{% url "home" %}"><button type="submit">Cancel</button></a>
+    </form>
+
+</div>
+{% endblock %}

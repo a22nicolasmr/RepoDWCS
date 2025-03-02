@@ -1,0 +1,22 @@
+{% extends 'appHtmls/base.html' %}
+{% load static %}
+{% block content %}
+
+<div style="border: solid black 2px; margin-bottom: 2px;">
+    <p>{{product.name}}</p><br>
+
+    <a href="{% url "delete" product.slug %}"><button>Delete</button></a>
+    <a href="{% url "update" product.slug %}"><button>Update</button></a>
+    {% comment %} <a href="{% url "" %}"><button>Favorite</button></a> {% endcomment %}
+     {% if is_favorite %}
+        <p>This is my favorite!</p>
+    {% else %}
+        <form action="/products/favorite" method="POST">
+            {% csrf_token %}
+            <input type="hidden" name="product_id" value="{{ product.id }}">
+            <button>Favorite</button>
+        </form>
+    {% endif %}
+</div>
+
+{% endblock %}

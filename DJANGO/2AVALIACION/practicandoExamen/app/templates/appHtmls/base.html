@@ -1,0 +1,31 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        img {
+            height: 20vh;
+            width: 20vh;
+        }
+    </style>
+</head>
+<nav>
+    <img src="{% static 'app/img.png' %}" alt="Goku"><br>
+    <a href="{% url "home" %}">Home</a>
+    <a href="{% url "add" %}">Add Product</a>
+    <a href="{% url "favorites" %}">Favorites</a>
+</nav>
+
+<body>
+    <form action="{% url "filtered" %}">
+        <input type="text" placeholder="nombre del producto" name="product_name">
+        <input type="submit" value="Send">
+    </form>
+    {% block content %}{% endblock %}
+</body>
+
+</html>

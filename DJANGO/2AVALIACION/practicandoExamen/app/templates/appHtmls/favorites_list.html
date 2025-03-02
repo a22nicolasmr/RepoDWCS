@@ -1,0 +1,22 @@
+{% extends "appHtmls/base.html" %}
+
+{% block content %}
+    <h2>Mis Productos Favoritos</h2>
+
+    {% if favorites %}
+        <ul>
+            {% for product in favorites %}
+                <li>
+                    <a href="{% url 'detail' product.slug %}">
+                        <h3>{{ product.name }}</h3>
+                    </a>
+                    <p>{{ product.description }}</p>
+                    <p>Precio: ${{ product.price }}</p>
+                    <img src="{{ product.picture.url }}" alt="{{ product.name }}" width="100">
+                </li>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <p>No tienes productos favoritos aún.</p>
+    {% endif %}
+{% endblock %}

@@ -1,0 +1,23 @@
+{% extends "appHtmls/base.html" %}
+{% load static %}
+{% block content %}
+<style>
+    div {
+        border: black solid 1px;
+    }
+</style>
+<div>
+    <form method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        {% for element in form %}
+        <div {% if element.errors %}error{% endif %}>
+            {{element.label_tag}}
+            {{element}}
+            {{element.error}}
+        </div>
+        {% endfor %}
+        <button type="submit">Send</button>
+    </form>
+
+</div>
+{% endblock %}
