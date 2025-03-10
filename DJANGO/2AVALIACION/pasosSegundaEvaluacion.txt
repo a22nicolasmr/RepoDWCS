@@ -26,3 +26,11 @@ Se se fai exactamente como fai nos apuntes , sale ben , pero hay que facelo con 
 22 Para coger el valor de un campo  query=self.request.GET.get("filtro")
 23 Para que no nos de problemas con la query hay que poner un if query: para ver si existe
 24 Para pasar el valor del filtro USAR FORMS
+25 Para usar el include, tenemos que poner el archivo base en la carpeta de templates sola , sin tener otra carpeta a mayores . Si tenemos por ejemplo "templates/appHtmls" , en settings tenemos que poner esa ruta y tenemos que extender de "appHtmls/base.html"
+26 Para usar lo de :
+
+    {% block css_files %}
+        <link rel="stylesheet"  href="{% static 'appStatic/home.css' %}">
+    {% endblock  %}
+
+tenemos que poner lo de {% block css_files %}{% endblock %} en el archivo base, si no no va
