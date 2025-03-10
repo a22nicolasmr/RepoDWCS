@@ -1,0 +1,17 @@
+{% include "appHtmls/base.html" %}
+{% block content %}
+<div>
+    {% if filtered_products %}
+    {% for product in filtered_products %}
+    <div style="border: solid black 2px;">
+        <p>{{product.name}}</p>
+        <p>{{product.price}}</p>
+        <img src="{{product.picture.url}}" alt="product image">
+        <a href="{% url 'product-detail' product.slug %}">Detail</a>
+    </div>
+    {% endfor %}
+    {% else %}
+    <p>No products available</p>
+    {% endif %}
+</div>
+{% endblock %}

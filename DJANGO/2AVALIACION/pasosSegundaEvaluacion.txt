@@ -1,0 +1,28 @@
+1 Creación de proxecto e dunha app e ver se se levanta
+2 Rexistrar app en settings
+3 Engadir as urls da app
+4 Crear archivos urls.py e forms.py na app
+5 Creación de models
+6 Se temos un campo imageField , indicamos que a carpeta a subir ten que ser a carpeta do proxecto/images e despois nos settings poñemos o de media
+7 Se temos un campo slug, incluimos metodo save dos apuntes para basalo nun campo concreto
+8 get_absolute_url collemolo para obter a url completa , copiamolo dos apuntes pero coidado con args[self.id], deberia ser args=[self.id]
+9 Migrations
+10 Personalización do adminSite como en apuntes
+11 Creamos unha carpeta templates a altura de migrations e dentro outra carpeta con outro nome, dentro metemos os htmls
+12 Creamos unha carpeta static dentro da carpeta de app e facemos outra carpeta dentro con outro nome , poñemos nas urls o correspondente, e nos settings tamen
+
+CUIDADO CON LAS RUTAS STATIC Y LOS ESPACIOS AL PASAR DE DJANGO HTML A HTML
+
+13 Creación de views e urls
+14 Incluir archivo base con include
+15 Creacion de mais vistas e dos forms personalizados
+16 Para mostrar os forms e poder subir fotos  enctype="multipart/form-data
+17 Para mostrar as imaxes dos productos na lista , hay que poner .url ao final do atributo
+18 Acordarse que para as urls hay que pasar o name das ruta de urls.py
+19 Importante que para que los submits funcionen tienen que estar dentro de forms y usar post
+20 Para que el action en los forms funcione hay que usar {%url %}
+21 HAY QUE HACER LO DE LOS FAVORITOS CON EL ID COMO ESTÁ EN LOS APUNTES
+Se se fai exactamente como fai nos apuntes , sale ben , pero hay que facelo con id non con slug
+22 Para coger el valor de un campo  query=self.request.GET.get("filtro")
+23 Para que no nos de problemas con la query hay que poner un if query: para ver si existe
+24 Para pasar el valor del filtro USAR FORMS
