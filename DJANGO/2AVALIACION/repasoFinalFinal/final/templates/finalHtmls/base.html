@@ -1,0 +1,20 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    {% block css_files %}{% endblock %}
+  </head>
+  <nav>
+    <img src="{% static "finalStatic/mango.png" %}" alt="mango" /><br />
+    <a href="{% url "home" %}">Home</a>
+    <a href="{% url "add" %}">Add student</a>
+    <a href="{% url "favorites" %}">Favorites</a>
+  </nav>
+
+  <body>
+    {% block content %}{% endblock  %}
+  </body>
+</html>

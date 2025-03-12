@@ -1,0 +1,31 @@
+{% extends "finalHtmls/base.html" %}
+{% load static %}
+{% block css_files %}
+<link rel="stylesheet" href="{% static "finalStatic/div.css" %}">
+{% endblock %}
+
+{% block content %}
+
+{% for student in students %}
+<div>
+    <p>{{student.name}}</p>
+    <p>{{student.surname}}</p>
+    <p>{{student.degree}}</p>
+    <a href="{% url "detail" student.slug %}">Detail</a>
+
+    <form action=" {% url "delete" student.slug %}">
+        <button type="submit">Delete</button>
+    </form>
+
+    <form action=" {% url "update" student.slug %}">
+        <button type="submit">Update</button>
+    </form>
+    <form action=" {% url "favorite" %}" method="post">
+        {% csrf_token %}
+        <input type="hidden" name="student_id" value="{{ student.id }}">
+        <button type="submit">Favorite</button>
+    </form>
+</div>
+
+{% endfor %}
+{% endblock %}
